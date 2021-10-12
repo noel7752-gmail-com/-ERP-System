@@ -286,7 +286,7 @@
 					<th bgcolor="lightgray">사이즈</th><br>
 					<td>
 						<select>
-							<option value="1000w">1000w</option>
+							<option value="50인치">50인치</option>
 						</select>
 					</td>
 			</tr>
