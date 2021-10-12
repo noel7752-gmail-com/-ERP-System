@@ -10,7 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="/resources/jquery-1.11.0.min.js"></script>
     <title>Day Break</title>
-    
+    localhost:8081/daybreak.do
+    localhost:8081/stock_in_out.do  
     <script>
     $(document).ready(function(){
     	 $("input:text[numberOnly]").on("keyup", function() {
@@ -44,8 +45,10 @@
         alert( $(".in_out_inputKeyword").val() + "개 출고!" );
     }
     
-    function zeroCut(number){ 
-             $(".in_out_inputKeyword").val( parseInt( $(".in_out_inputKeyword").val() ) ); 
+    function zeroCut(number){
+    	var inp = $(".in_out_inputKeyword").val();
+        if( inp.length==0 ){  $(".in_out_inputKeyword").val( 0 );  }
+        $(".in_out_inputKeyword").val( parseInt( $(".in_out_inputKeyword").val() ) ); 
     }
     
     </script>
@@ -102,7 +105,7 @@
         </tr>                          
     </table>
 
-    
+
     
     
     
