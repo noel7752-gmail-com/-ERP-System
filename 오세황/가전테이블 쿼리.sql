@@ -24,56 +24,71 @@ create table BO_ID_categories(
     primary key(category_code)
 );
 /*가전 대분류 테이블*/
-create table BO_ID_Gcategory(
+create table BO_ID_g_sub_category(
     category_code,
-    Gcategory_code varchar2(20),
-    Gcategory_name VARCHAR2(20) NOT NULL UNIQUE,
-    PRIMARY KEY(Gcategory_code),
+    g_sub_category_code varchar2(20),
+    g_sub_category_name VARCHAR2(20) NOT NULL UNIQUE,
+    PRIMARY KEY(g_sub_category_code),
     foreign key(category_code) references BO_ID_categories(category_code)
 );
+/*제품종류*/
+create table BO_ID_g_sub_sub_category(
+    g_sub_sub_category_code varchar2(50),
+    g_sub_category_code,
+    g_sub_sub_category_name varchar2(50) not null,
+    primary key(g_sub_sub_category_code),
+    foreign key(g_sub_category_code) references BO_ID_g_sub_category(g_sub_category_code)
+);
 /*제품 테이블*/
-create table BO_ID_Gitems(
-   thumbnail varchar2(200),
-   Gcategory_code,
+create table BO_ID_g_items(
+   pic varchar2(200),
+   g_sub_category_code,
+   g_sub_sub_category_code,
    category_code,
    brand_code,
-   Gitem_code varchar2(20),
-   Gitem_name varchar2(20) not null,
+   g_item_code varchar2(20),
+   g_item_name varchar2(20) not null,
    build_day date,
    energy_grade_code,
    power_consum varchar2(20) not null,
    color_code,
-   whatsize varchar(2),
+   g_item_sizex number(5) default 0,
+   g_item_sizey number(5) default 0,
+   g_item_sizez number(5) default 0,
    discontinued varchar2(10) default 'false',
-   primary key(Gitem_code),
-   foreign key(Gcategory_code) references BO_ID_Gcategory(Gcategory_code),
+   primary key(g_item_code),
+   foreign key(g_sub_category_code) references BO_ID_g_sub_category(g_sub_category_code),
    foreign key(category_code) references BO_ID_categories(category_code),
    foreign key(brand_code) references brand(brand_code),
    foreign key(energy_grade_code) references energy_grade(energy_grade_code),
-   foreign key(color_code) references color(color_code)
+   foreign key(color_code) references color(color_code),
+   foreign key(g_sub_sub_category_code) references BO_ID_g_sub_sub_category(g_sub_sub_category_code)
 );
 /* 입고일 날짜 저장 테이블 */
-create table input_date (
-    Gitem_code,
+create table BO_ID_input_date (
+    input_date_no number(5),
+    g_item_code,
     input_date date not null,
     stock_in_cnt number(4) not null,
-    foreign key(Gitem_code) references BO_ID_Gitems(Gitem_code)
+    primary key(input_date_no),
+    foreign key(g_item_code) references BO_ID_g_items(g_item_code)
 );
 /* 출고일 날짜 저장 테이블 */
-create table output_date (
-    Gitem_code,
+create table BO_ID_output_date (
+    output_date_no number(5),
+    g_item_code,
     output_date date not null,
     stock_out_cnt number(4) not null,
-    foreign key(Gitem_code) references BO_ID_Gitems(Gitem_code)
+    primary key(output_date_no),
+    foreign key(g_item_code) references BO_ID_g_items(g_item_code)
 );
 
-drop table BO_ID_brand;
-drop table BO_ID_MEPS;
-drop table BO_ID_color;
-drop table BO_ID_gajun_items ;
-drop table BO_ID_gajun_category;
+drop table BO_ID_output_date;
+drop table BO_ID_input_date;
+drop table BO_ID_g_items;
+drop table BO_ID_g_sub_sub_category ;
+drop table BO_ID_g_sub_category;
 drop table BO_ID_categories ;
-drop table BO_ID_gajun_semicategory;
 
 
 commit
