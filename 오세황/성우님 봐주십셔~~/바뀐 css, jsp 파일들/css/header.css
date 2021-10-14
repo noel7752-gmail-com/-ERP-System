@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+.header-container {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+  opacity: 0.7;
+}
+.header-container .search-input {
+  position: relative;
+}
+.header-container .search-input input[name="keyword"] {
+  font-size: 17px;
+  width: 300px;
+  height: 40px;
+}
+.header-container .search-input input[name="keyword"]:focus-within {
+  transform: scaleY(130%) scaleX(130%) translateX(-9%);
+}
+.header-container .search-input i {
+  position: absolute;
+  right: 4;
+  top: 4;
+}
+.header-container .hellpcall-list {
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+}
+.header-container .log-in-out_BO-select {
+  font-size: 18px;
+}
+.categories-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+.categories-container span {
+  padding: 10px;
+  border-radius: 30px;
+}
+.categories-container span:hover {
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  transform: translatey(-13%);
+}
