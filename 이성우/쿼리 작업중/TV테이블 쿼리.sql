@@ -5,9 +5,9 @@ create table ID_t_sub_category(
     t_sub_category_code varchar2(20),
     t_sub_category_name VARCHAR2(200) NOT NULL UNIQUE,
     PRIMARY KEY(t_sub_category_code),
-    foreign key(category_code) references BO_ID_categories(category_code)
+    foreign key(category_code) references ID_categories(category_code)
 );
-/*제품종류*/
+/*소분류 TV 테이블*/
 create table ID_t_sub_sub_category(
     t_sub_sub_category_code varchar2(50),
     t_sub_category_code,
