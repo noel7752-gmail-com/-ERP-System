@@ -23,15 +23,15 @@ create table ID_p_items(
    brand_code,
    p_item_code varchar2(20),
    p_item_name varchar2(200) not null,
-   build_day date,
+   p_build_day date,
    energy_grade_code,
-   power_consum varchar2(20) not null,
+   p_power_consum varchar2(20) not null,
    color_code,
    p_item_size_x number(5) default 0,
    p_item_size_y number(5) default 0,
    p_item_size_z number(5) default 0,
-   discontinued varchar2(10) default 'false',
-   pic varchar2(200),
+   p_discontinued varchar2(10) default 'false',
+   p_pic varchar2(200),
    primary key(p_item_code),
    foreign key(p_sub_category_code) references ID_p_sub_category(p_sub_category_code),
    foreign key(category_code) references ID_categories(category_code),
@@ -42,20 +42,20 @@ create table ID_p_items(
 );
 /* 입고일 날짜 저장 테이블 */
 create table ID_p_input_date (
-    input_date_no number(5),
+    p_input_date_no number(5),
     p_item_code,
-    input_date date not null,
-    stock_in_cnt number(4) not null,
-    primary key(input_date_no),
+    p_input_date date not null,
+    p_stock_in_cnt number(4) not null,
+    primary key(p_input_date_no),
     foreign key(p_item_code) references ID_p_items(p_item_code)
 );
 /* 출고일 날짜 저장 테이블 */
 create table ID_p_output_date (
-    output_date_no number(5),
+    p_output_date_no number(5),
     p_item_code,
-    output_date date not null,
-    stock_out_cnt number(4) not null,
-    primary key(output_date_no),
+    p_output_date date not null,
+    p_stock_out_cnt number(4) not null,
+    primary key(p_output_date_no),
     foreign key(p_item_code) references ID_p_items(p_item_code)
 );
 

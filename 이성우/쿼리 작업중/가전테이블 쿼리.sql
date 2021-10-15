@@ -1,4 +1,7 @@
 
+--==============================================================
+-- 공용 테이블.
+
 /*색상 테이블*/
 create table color(
 color_code varchar2(20),
@@ -25,6 +28,12 @@ create table ID_categories(
     category_name varchar2(200) not null,
     primary key(category_code)
 );
+--=============================================================
+
+
+
+
+
 
 /*가전 중분류 테이블*/
 create table ID_g_sub_category(
@@ -50,15 +59,15 @@ create table ID_g_items(
    brand_code,
    g_item_code varchar2(20),
    g_item_name varchar2(200) not null,
-   build_day date,
+   g_build_day date,
    energy_grade_code,
-   power_consum varchar2(20) not null,
+   g_power_consum varchar2(20) not null,
    color_code,
    g_item_size_x number(5) default 0,
    g_item_size_y number(5) default 0,
    g_item_size_z number(5) default 0,
-   discontinued varchar2(10) default 'false',
-   pic varchar2(200),
+   g_discontinued varchar2(10) default 'false',
+   g_pic varchar2(200),
    primary key(g_item_code),
    foreign key(g_sub_category_code) references ID_g_sub_category(g_sub_category_code),
    foreign key(category_code) references ID_categories(category_code),
@@ -69,25 +78,25 @@ create table ID_g_items(
 );
 /* 입고일 날짜 저장 테이블 */
 create table ID_g_input_date (
-    input_date_no number(5),
+    g_input_date_no number(5),
     g_item_code,
-    input_date date not null,
-    stock_in_cnt number(4) not null,
-    primary key(input_date_no),
+    g_input_date date not null,
+    g_stock_in_cnt number(4) not null,
+    primary key(g_input_date_no),
     foreign key(g_item_code) references ID_g_items(g_item_code)
 );
 /* 출고일 날짜 저장 테이블 */
 create table ID_g_output_date (
-    output_date_no number(5),
+    g_output_date_no number(5),
     g_item_code,
-    output_date date not null,
-    stock_out_cnt number(4) not null,
-    primary key(output_date_no),
+    g_output_date date not null,
+    g_stock_out_cnt number(4) not null,
+    primary key(g_output_date_no),
     foreign key(g_item_code) references ID_g_items(g_item_code)
 );
 
-drop table ID_output_date;
-drop table ID_input_date;
+drop table ID_g_output_date;
+drop table ID_g_input_date;
 drop table ID_g_items;
 drop table ID_g_sub_sub_category ;
 drop table ID_g_sub_category;
@@ -107,38 +116,38 @@ select * from ID_g_items
 -- INSERT 시작.
 
 -- 대분류 카테고리 insert -----------
-insert into BO_ID_CATEGORIES (category_code, category_name) values(1,'가전') ;
-insert into BO_ID_CATEGORIES (category_code, category_name) values(2,'TV')   ;
-insert into BO_ID_CATEGORIES (category_code, category_name) values(3,'PC')   ;
-insert into BO_ID_CATEGORIES (category_code, category_name) values(4,'모바일');
+insert into ID_CATEGORIES (category_code, category_name) values(1,'가전') ;
+insert into ID_CATEGORIES (category_code, category_name) values(2,'TV')   ;
+insert into ID_CATEGORIES (category_code, category_name) values(3,'PC')   ;
+insert into ID_CATEGORIES (category_code, category_name) values(4,'모바일');
 
-select * from bo_id_categories
+select * from id_categories
 
 commit
 
 -- 중분류 카테고리 insert
-insert into BO_ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,1,'계절가전') ;
-insert into BO_ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,2,'주방가전') ;
-insert into BO_ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,3,'생활가전') ;
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,1,'계절가전') ;
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,2,'주방가전') ;
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,3,'생활가전') ;
 
-select * from BO_ID_G_SUB_CATEGORY
+select * from ID_G_SUB_CATEGORY
 
 commit
 
 -- 소분류 카테고리 insert
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,1,'에어컨') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,2,'공기청정') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,3,'난방기기') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,1,'에어컨') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,2,'공기청정') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,3,'난방기기') ;
 
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,4,'냉장고') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,5,'전기밥솥') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,6,'에어프라이어') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,4,'냉장고') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,5,'전기밥솥') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,6,'에어프라이어') ;
 
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,7,'세탁기') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,8,'건조기') ;
-insert into BO_ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,9,'청소기') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,7,'세탁기') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,8,'건조기') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,9,'청소기') ;
 
-select * from BO_ID_G_SUB_SUB_CATEGORY
+select * from ID_G_SUB_SUB_CATEGORY
 
 commit
 
@@ -313,6 +322,10 @@ select * from color
 
 commit
 
+--==============================================================================
+
+
+-- 테스트 쿼리
 delete from color where color_code = 4
 drop table color
 
