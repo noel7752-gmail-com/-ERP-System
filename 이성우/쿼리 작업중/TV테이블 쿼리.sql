@@ -64,7 +64,7 @@ drop table ID_t_input_date;
 drop table ID_t_items;
 drop table ID_t_sub_sub_category ;
 drop table ID_t_sub_category;
-drop table ID_t_categories ;
+drop table ID_categories ;
 drop table brand;
 drop table color;
 drop table energy_grade;
