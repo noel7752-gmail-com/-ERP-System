@@ -1,0 +1,28 @@
+.content-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 100px;
+}
+.content-container .calendar {
+  border: 1px solid lightcoral;
+  padding: 10px;
+  margin-right: 100px;
+}
+.content-container .caption {
+  font-weight: bold;
+  font-size: 20px;
+}
+.content-container .summary-infomation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.content-container .summary-infomation .board {
+  border: 1px solid lightcoral;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.content-container .summary-infomation .stock {
+  border: 1px solid lightcoral;
+  padding: 10px;
+}
