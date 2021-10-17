@@ -74,3 +74,29 @@ commit
 rollback
 
 select * from ID_p_items
+
+
+
+
+-- 중분류 카테고리 insert
+insert into ID_p_SUB_CATEGORY (category_code, p_sub_category_code, p_sub_category_name) values(3,1,'데스크탑') ;
+insert into ID_p_SUB_CATEGORY (category_code, p_sub_category_code, p_sub_category_name) values(3,2,'노트북') ;
+
+
+
+-- 소분류 카테고리 insert
+insert into ID_p_SUB_SUB_CATEGORY (p_sub_category_code, p_sub_sub_category_code, p_sub_sub_category_name) values(1,1,'사무용/인강용') ;
+insert into ID_p_SUB_SUB_CATEGORY (p_sub_category_code, p_sub_sub_category_code, p_sub_sub_category_name) values(1,2,'게이밍') ;
+
+
+insert into ID_p_SUB_SUB_CATEGORY (p_sub_category_code, p_sub_sub_category_code, p_sub_sub_category_name) values(2,3,'비지니스') ;
+insert into ID_p_SUB_SUB_CATEGORY (p_sub_category_code, p_sub_sub_category_code, p_sub_sub_category_name) values(2,4,'게이밍') ;
+
+
+
+select * from ID_p_SUB_CATEGORY
+
+select * from ID_p_SUB_SUB_CATEGORY
+
+
+commit
