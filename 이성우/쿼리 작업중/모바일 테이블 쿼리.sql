@@ -74,3 +74,29 @@ commit
 rollback
 
 select * from ID_m_items
+
+
+
+
+-- 중분류 카테고리 insert
+insert into ID_m_SUB_CATEGORY (category_code, m_sub_category_code, m_sub_category_name) values(4,1,'휴대폰') ;
+insert into ID_m_SUB_CATEGORY (category_code, m_sub_category_code, m_sub_category_name) values(4,2,'태블릿') ;
+
+
+
+-- 소분류 카테고리 insert
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(1,1,'삼성전자') ;
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(1,2,'애플') ;
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(1,3,'기타') ;
+
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(2,4,'안드로이드') ;
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(2,5,'윈도우') ;
+insert into ID_m_SUB_SUB_CATEGORY (m_sub_category_code, m_sub_sub_category_code, m_sub_sub_category_name) values(2,6,'아이패드') ;
+
+
+select * from ID_m_SUB_CATEGORY
+
+select * from ID_m_SUB_SUB_CATEGORY
+
+
+commit
