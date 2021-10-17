@@ -17,6 +17,7 @@ create table ID_t_sub_sub_category(
 );
 /*제품 테이블*/
 create table ID_t_items(
+   t_item_no number(30) not null unique,
    category_code,
    t_sub_category_code,
    t_sub_sub_category_code,

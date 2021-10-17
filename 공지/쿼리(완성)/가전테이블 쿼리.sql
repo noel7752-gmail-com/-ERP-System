@@ -53,6 +53,7 @@ create table ID_g_sub_sub_category(
 );
 /*제품 테이블*/
 create table ID_g_items(
+   g_item_no number(30) not null unique,
    category_code,
    g_sub_category_code,
    g_sub_sub_category_code,
@@ -655,7 +656,7 @@ Serene Green
 -- =================
 -- 테스트용 쿼리
 
-select * from BO_ID_G_ITEMS
+select * from ID_G_ITEMS
 select * from color
 select * from energy_grade
 select * from brand
