@@ -74,3 +74,23 @@ commit
 rollback
 
 select * from ID_t_items
+
+
+
+-- 중분류 카테고리 insert
+insert into ID_t_SUB_CATEGORY (category_code, t_sub_category_code, t_sub_category_name) values(2,1,'TV') ;
+
+
+-- 소분류 카테고리 insert
+insert into ID_t_SUB_SUB_CATEGORY (t_sub_category_code, t_sub_sub_category_code, t_sub_sub_category_name) values(1,1,'QLED') ;
+insert into ID_t_SUB_SUB_CATEGORY (t_sub_category_code, t_sub_sub_category_code, t_sub_sub_category_name) values(1,2,'mini LED') ;
+insert into ID_t_SUB_SUB_CATEGORY (t_sub_category_code, t_sub_sub_category_code, t_sub_sub_category_name) values(1,3,'OLED') ;
+
+
+
+
+select * from ID_t_SUB_CATEGORY
+
+select * from ID_t_SUB_SUB_CATEGORY
+
+commit
