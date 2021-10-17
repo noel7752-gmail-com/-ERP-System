@@ -655,7 +655,7 @@ Serene Green
 -- =================
 -- 테스트용 쿼리
 
-select * from BO_ID_G_ITEMS
+select * from ID_G_ITEMS
 select * from color
 select * from energy_grade
 select * from brand
