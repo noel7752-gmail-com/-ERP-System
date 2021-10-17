@@ -200,6 +200,26 @@ insert into brand (brand_code, brand_name) values(31,'위니아전자');
 insert into brand (brand_code, brand_name) values(32,'미디어');
 insert into brand (brand_code, brand_name) values(33,'다이슨');
 
+insert into brand (brand_code, brand_name) values(34,'애플');
+insert into brand (brand_code, brand_name) values(35,'레노버');
+insert into brand (brand_code, brand_name) values(36,'태클라스트');
+insert into brand (brand_code, brand_name) values(37,'디클');
+insert into brand (brand_code, brand_name) values(38,'CHUWI');
+insert into brand (brand_code, brand_name) values(39,'엠피지오');
+insert into brand (brand_code, brand_name) values(40,'아마존');
+insert into brand (brand_code, brand_name) values(41,'HP');
+insert into brand (brand_code, brand_name) values(42,'한성');
+insert into brand (brand_code, brand_name) values(43,'DELL');
+insert into brand (brand_code, brand_name) values(44,'ASUS');
+insert into brand (brand_code, brand_name) values(45,'MSI');
+insert into brand (brand_code, brand_name) values(46,'한성컴퓨터');
+insert into brand (brand_code, brand_name) values(47,'ACER');
+insert into brand (brand_code, brand_name) values(48,'와사비망고');
+insert into brand (brand_code, brand_name) values(49,'이노스');
+insert into brand (brand_code, brand_name) values(50,'TNM');
+insert into brand (brand_code, brand_name) values(51,'시티브');
+
+
 select * from brand
 
 commit
@@ -262,6 +282,29 @@ PN풍년
 -- 생활가전 - 청소기
 다이슨
 
+--tv pc 모바일 추가 브랜드
+애플
+레노버
+태클라스트
+디클
+CHUWI
+엠피지오
+아마존
+HP
+한성
+DELL
+ASUS
+MSI
+한성컴퓨터
+ACER
+와사비망고
+이노스
+TNM
+시티브
+
+
+
+
 
 
 -- 컬러 insert
@@ -317,6 +360,94 @@ insert into color (color_code, color_name) values(47,'퍼플');
 insert into color (color_code, color_name) values(48,'버건디');
 insert into color (color_code, color_name) values(49,'브라운');
 insert into color (color_code, color_name) values(50,'옐로우');
+
+insert into color (color_code, color_name) values(51,'팬텀 블랙');
+insert into color (color_code, color_name) values(52,'팬텀 그린');
+insert into color (color_code, color_name) values(53,'팬텀 실버');
+insert into color (color_code, color_name) values(54,'크림');
+insert into color (color_code, color_name) values(55,'라벤더');
+insert into color (color_code, color_name) values(56,'팬텀 그레이');
+insert into color (color_code, color_name) values(57,'팬텀 핑크');
+insert into color (color_code, color_name) values(58,'팬텀 바이올렛');
+insert into color (color_code, color_name) values(59,'팬텀 화이트');
+insert into color (color_code, color_name) values(60,'미스틱 블랙');
+insert into color (color_code, color_name) values(61,'미스틱 브론즈');
+insert into color (color_code, color_name) values(62,'클라우즈 라벤더');
+insert into color (color_code, color_name) values(63,'클라우드 네이비');
+insert into color (color_code, color_name) values(64,'클라우드 민트');
+insert into color (color_code, color_name) values(65,'클라우드 레드');
+insert into color (color_code, color_name) values(66,'클라우드 화이트');
+insert into color (color_code, color_name) values(67,'골드');
+insert into color (color_code, color_name) values(68,'핑크');
+insert into color (color_code, color_name) values(69,'퍼시픽 블루');
+insert into color (color_code, color_name) values(70,'스페이스 그레이');
+insert into color (color_code, color_name) values(71,'아스트로 블랙');
+insert into color (color_code, color_name) values(72,'메탈릭 실버');
+insert into color (color_code, color_name) values(73,'문라이트 티탄');
+insert into color (color_code, color_name) values(74,'프로즌 화이트');
+insert into color (color_code, color_name) values(75,'오로라 블랙');
+insert into color (color_code, color_name) values(76,'세라믹 화이트');
+insert into color (color_code, color_name) values(77,'미러 티탄');
+insert into color (color_code, color_name) values(78,'미러 레드');
+insert into color (color_code, color_name) values(79,'오로라 화이트');
+insert into color (color_code, color_name) values(80,'오로라 그레이');
+insert into color (color_code, color_name) values(81,'오로라 그린');
+insert into color (color_code, color_name) values(82,'일루젼 선셋');
+insert into color (color_code, color_name) values(83,'뉴 오로라 블랙');
+insert into color (color_code, color_name) values(84,'뉴 모로칸 블랙');
+insert into color (color_code, color_name) values(85,'카민 레드');
+insert into color (color_code, color_name) values(86,'뉴 모로칸 블루');
+insert into color (color_code, color_name) values(87,'미드나이트 그레이');
+insert into color (color_code, color_name) values(88,'폴라 화이트');
+insert into color (color_code, color_name) values(89,'포레스트 그린');
+insert into color (color_code, color_name) values(90,'오닉스 블랙');
+insert into color (color_code, color_name) values(91,'민트');
+insert into color (color_code, color_name) values(92,'페블 화이트');
+insert into color (color_code, color_name) values(93,'오닉스 그레이');
+insert into color (color_code, color_name) values(94,'글래시어 블루');
+insert into color (color_code, color_name) values(95,'그라디언트 브론즈');
+insert into color (color_code, color_name) values(96,'슬레이트 그레이');
+insert into color (color_code, color_name) values(97,'로즈골드');
+insert into color (color_code, color_name) values(98,'얼씨골드');
+insert into color (color_code, color_name) values(99,'파인그레이');
+insert into color (color_code, color_name) values(100,'브론즈');
+insert into color (color_code, color_name) values(101,'다크실버');
+insert into color (color_code, color_name) values(102,'포트리스 그레이');
+insert into color (color_code, color_name) values(103,'이클립스 그레이');
+insert into color (color_code, color_name) values(104,'이클립스실버');
+insert into color (color_code, color_name) values(105,'스테인리스스틸');
+insert into color (color_code, color_name) values(106,'타이탄블랙');
+insert into color (color_code, color_name) values(107,'맨해튼미드나잇');
+insert into color (color_code, color_name) values(108,'샤이니 사피아노');
+insert into color (color_code, color_name) values(109,'샤이니퓨어');
+insert into color (color_code, color_name) values(110,'그레이 블랙');
+insert into color (color_code, color_name) values(111,'클레이브라운+베이지');
+insert into color (color_code, color_name) values(112,'그린 실버');
+insert into color (color_code, color_name) values(113,'세라블랙');
+insert into color (color_code, color_name) values(114,'코타 펀 그린');
+insert into color (color_code, color_name) values(115,'글램화이트 글램핑크');
+insert into color (color_code, color_name) values(116,'글램새틴');
+insert into color (color_code, color_name) values(117,'브라우니실버');
+insert into color (color_code, color_name) values(118,'새틴베이지 새틴토프');
+insert into color (color_code, color_name) values(119,'엘레강트이녹스');
+insert into color (color_code, color_name) values(120,'내추럴');
+insert into color (color_code, color_name) values(121,'리얼메탈');
+insert into color (color_code, color_name) values(122,'젠틀블랙');
+insert into color (color_code, color_name) values(123,'실버메탈');
+insert into color (color_code, color_name) values(124,'마인드실버');
+insert into color (color_code, color_name) values(125,'그랜드실버');
+insert into color (color_code, color_name) values(126,'매트그린');
+insert into color (color_code, color_name) values(127,'다크타이탄실버');
+insert into color (color_code, color_name) values(128,'어반그레이');
+insert into color (color_code, color_name) values(129,'매트화이트');
+insert into color (color_code, color_name) values(130,'플래티늄브라운');
+insert into color (color_code, color_name) values(131,'이녹스실버');
+insert into color (color_code, color_name) values(132,'새틴라이트베이지');
+insert into color (color_code, color_name) values(133,'메탈릭그레이');
+insert into color (color_code, color_name) values(134,'딥실버');
+insert into color (color_code, color_name) values(135,'샌드베이지');
+insert into color (color_code, color_name) values(136,'미들블랙');
+insert into color (color_code, color_name) values(137,'미들프리실버');
 
 select * from color
 
@@ -430,10 +561,95 @@ Serene Green
 옐로우
 화이트
 
+--tv pc 모바일 추가 컬러
+팬텀 블랙
+팬텀 그린
+팬텀 실버
+크림
+라벤더
+팬텀 그레이
+팬텀 핑크
+팬텀 바이올렛
+팬텀 화이트
+미스틱 블랙
+미스틱 브론즈
+클라우즈 라벤더
+클라우드 네이비
+클라우드 민트
+클라우드 레드
+클라우드 화이트
+골드
+핑크
+퍼시픽 블루
+스페이스 그레이
+아스트로 블랙
+메탈릭 실버
+문라이트 티탄
+프로즌 화이트
+오로라 블랙
+세라믹 화이트
+미러 티탄
+미러 레드
+오로라 화이트
+오로라 그레이
+오로라 그린
+일루젼 선셋
+뉴 오로라 블랙
+뉴 모로칸 블랙
+카민 레드
+뉴 모로칸 블루
+미드나이트 그레이
+폴라 화이트
+포레스트 그린
+오닉스 블랙
+민트
+페블 화이트
+오닉스 그레이
+글래시어 블루
+그라디언트 브론즈
+슬레이트 그레이
+로즈골드
+얼씨골드
+파인그레이
+브론즈
+다크실버
+포트리스 그레이
+이클립스 그레이
+이클립스실버
+스테인리스스틸
+타이탄블랙
+맨해튼미드나잇
+샤이니 사피아노
+샤이니퓨어
+그레이 블랙
+클레이브라운+베이지
+그린 실버
+세라블랙
+코타 펀 그린
+글램화이트 글램핑크
+글램새틴
+브라우니실버
+새틴베이지 새틴토프
+엘레강트이녹스
+내추럴
+리얼메탈
 
-
-
-
+젠틀블랙
+실버메탈
+마인드실버
+그랜드실버
+매트그린
+다크타이탄실버
+어반그레이
+매트화이트
+플래티늄브라운
+이녹스실버
+새틴라이트베이지
+메탈릭그레이
+딥실버
+샌드베이지
+미들블랙
+미들프리실버
 
 
 -- =================
