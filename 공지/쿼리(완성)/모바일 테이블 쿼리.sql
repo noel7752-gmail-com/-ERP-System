@@ -18,6 +18,7 @@ create table ID_m_sub_sub_category(
 /*제품 테이블*/
 create table ID_m_items(
    m_item_no number(30) not null unique,
+   m_item_reg_date date default sysdate,
    category_code,
    m_sub_category_code,
    m_sub_sub_category_code,
