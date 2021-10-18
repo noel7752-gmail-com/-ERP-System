@@ -1,0 +1,1088 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DBMODEL Version="4.0">
+<SETTINGS>
+<GLOBALSETTINGS ModelName="ERD 2021-10-18" IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="Oracle" ZoomFac="56.25" XPos="0" YPos="0" DefaultDataType="INT" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="" DefQueryDBConn="" Printer="" HPageCount="4.0" PageAspectRatio="1.440892512336408" PageOrientation="1" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="0" ActivateRefDefForNewRelations="0" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="0" DBQuoteCharacter="`" CreateSQLforLinkedObjects="0" DefModelFont="Tahoma" CanvasWidth="4096" CanvasHeight="2842" ERDFileName="" TFSPath="" USERID="" USERNAME="" CONNINFOHASHCODEB="" IsTBLView_LogTblNM="1" IsTBLView_ConnInfo="0" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" />
+<DATATYPEGROUPS>
+</DATATYPEGROUPS>
+<DATATYPES>
+</DATATYPES>
+<TABLEPREFIXES>
+<TABLEPREFIX Name="Default (no prefix)" />
+</TABLEPREFIXES>
+<REGIONCOLORS>
+<REGIONCOLOR Color="빨강=#FFEEEC" />
+<REGIONCOLOR Color="노랑=#FEFDED" />
+<REGIONCOLOR Color="녹색=#EAFFE5" />
+<REGIONCOLOR Color="자주색=#ECFDFF" />
+<REGIONCOLOR Color="파랑=#F0F1FE" />
+<REGIONCOLOR Color="밝은파랑=#E0EBFF" />
+</REGIONCOLORS>
+<POSITIONMARKERS>
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+<POSITIONMARKER ZoomFac="-1.0" X="0" Y="0" />
+</POSITIONMARKERS>
+<DBCONNECTIONINFOS>
+</DBCONNECTIONINFOS>
+</SETTINGS>
+<METADATA>
+<CUSTOMSCRIPT>
+
+</CUSTOMSCRIPT>
+<REGIONS>
+</REGIONS>
+<TABLES>
+<TABLE ID="1000" SchemaName="KING" Tablename="ID_G_INPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="46" YPos="1365" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="2" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1001" ColName="G_INPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1002" ColName="G_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1003" ColName="G_INPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1004" ColName="G_STOCK_IN_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1023" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1005" SchemaName="KING" Tablename="ID_G_ITEMS" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="162" YPos="955" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1006" ColName="G_ITEM_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1007" ColName="G_ITEM_REG_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="sysdate" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1008" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1009" ColName="G_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1010" ColName="G_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1011" ColName="BRAND_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1012" ColName="G_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1013" ColName="G_ITEM_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1014" ColName="G_BUILD_DAY" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1015" ColName="ENERGY_GRADE_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1016" ColName="G_POWER_CONSUM" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1017" ColName="COLOR_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1018" ColName="G_ITEM_SIZE_X" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1019" ColName="G_ITEM_SIZE_Y" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1020" ColName="G_ITEM_SIZE_Z" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1021" ColName="G_DISCONTINUED" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(10)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="'false'" Collation="" Check="" Comments="" Length="10" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1022" ColName="G_PIC" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1023" />
+<RELATION_START ID="1115" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1074" />
+<RELATION_END ID="1093" />
+<RELATION_END ID="1124" />
+<RELATION_END ID="1158" />
+<RELATION_END ID="1170" />
+<RELATION_END ID="1182" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1024" SchemaName="KING" Tablename="ID_T_OUTPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1024" YPos="1367" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="5" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1025" ColName="T_OUTPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1026" ColName="T_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1027" ColName="T_OUTPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1028" ColName="T_STOCK_OUT_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1208" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1029" SchemaName="KING" Tablename="ID_P_OUTPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1607" YPos="1365" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="6" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1030" ColName="P_OUTPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1031" ColName="P_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1032" ColName="P_OUTPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1033" ColName="P_STOCK_OUT_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1052" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1034" SchemaName="KING" Tablename="ID_P_ITEMS" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1458" YPos="969" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1035" ColName="P_ITEM_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1036" ColName="P_ITEM_REG_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="sysdate" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1037" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1038" ColName="P_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1039" ColName="P_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1040" ColName="BRAND_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1041" ColName="P_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1042" ColName="P_ITEM_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1043" ColName="P_BUILD_DAY" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1044" ColName="ENERGY_GRADE_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1045" ColName="P_POWER_CONSUM" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1046" ColName="COLOR_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1047" ColName="P_ITEM_SIZE_X" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1048" ColName="P_ITEM_SIZE_Y" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1049" ColName="P_ITEM_SIZE_Z" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1050" ColName="P_DISCONTINUED" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(10)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="'false'" Collation="" Check="" Comments="" Length="10" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1051" ColName="P_PIC" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1052" />
+<RELATION_START ID="1085" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1094" />
+<RELATION_END ID="1104" />
+<RELATION_END ID="1125" />
+<RELATION_END ID="1159" />
+<RELATION_END ID="1166" />
+<RELATION_END ID="1173" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1053" SchemaName="KING" Tablename="BOARD" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="2268" YPos="39" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="9" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1054" ColName="B_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(9)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="9" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1055" ColName="SUBJECT" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(100)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="100" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1056" ColName="WRITER" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1057" ColName="CONTENT" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(2000)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="2000" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1058" ColName="PWD" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(12)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="12" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1059" ColName="EMAIL" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1060" ColName="REG_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="sysdate      --&gt; 등록일
+" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1061" ColName="READCOUNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0            --&gt; 조회수
+
+" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1062" ColName="GROUP_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(9)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="9" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1063" ColName="PRINT_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(9)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="9" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1064" ColName="PRINT_LEVEL" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(9)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="9" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1065" ColName="PIC" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+</TABLE>
+<TABLE ID="1066" SchemaName="KING" Tablename="ID_T_SUB_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="674" YPos="731" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="10" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1067" ColName="T_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1068" ColName="T_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1069" ColName="T_SUB_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1206" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1079" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1070" SchemaName="KING" Tablename="ID_G_SUB_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="46" YPos="670" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="11" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1071" ColName="G_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1072" ColName="G_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1073" ColName="G_SUB_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1074" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1181" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1075" SchemaName="KING" Tablename="ID_T_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="757" YPos="500" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1076" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1077" ColName="T_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1078" ColName="T_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1079" />
+<RELATION_START ID="1205" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1171" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1080" SchemaName="KING" Tablename="ID_P_INPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1356" YPos="1367" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="15" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1081" ColName="P_INPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1082" ColName="P_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1083" ColName="P_INPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1084" ColName="P_STOCK_IN_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1085" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1086" SchemaName="KING" Tablename="ID_M_SUB_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="2181" YPos="722" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="17" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1087" ColName="M_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1088" ColName="M_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1089" ColName="M_SUB_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1147" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1099" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1090" SchemaName="KING" Tablename="COLOR" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="460" YPos="119" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1091" ColName="COLOR_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1092" ColName="COLOR_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1093" />
+<RELATION_START ID="1094" />
+<RELATION_START ID="1144" />
+<RELATION_START ID="1201" />
+</RELATIONS_START>
+</TABLE>
+<TABLE ID="1095" SchemaName="KING" Tablename="ID_M_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1982" YPos="469" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="21" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1096" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1097" ColName="M_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1098" ColName="M_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1099" />
+<RELATION_START ID="1146" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1174" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1100" SchemaName="KING" Tablename="ID_P_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1360" YPos="521" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="23" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1101" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1102" ColName="P_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1103" ColName="P_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1104" />
+<RELATION_START ID="1165" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1172" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1105" SchemaName="KING" Tablename="ID_M_INPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1940" YPos="1371" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1106" ColName="M_INPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1107" ColName="M_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1108" ColName="M_INPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1109" ColName="M_STOCK_IN_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1148" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1110" SchemaName="KING" Tablename="ID_G_OUTPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="318" YPos="1362" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="26" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1111" ColName="G_OUTPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1112" ColName="G_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1113" ColName="G_OUTPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1114" ColName="G_STOCK_OUT_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1115" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1116" SchemaName="KING" Tablename="ID_M_OUTPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="2231" YPos="1374" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="28" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1117" ColName="M_OUTPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1118" ColName="M_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1119" ColName="M_OUTPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1120" ColName="M_STOCK_OUT_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1149" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1121" SchemaName="KING" Tablename="ENERGY_GRADE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1760" YPos="119" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="29" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1122" ColName="ENERGY_GRADE_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1123" ColName="ENERGY_GRADE_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1124" />
+<RELATION_START ID="1125" />
+<RELATION_START ID="1145" />
+<RELATION_START ID="1202" />
+</RELATIONS_START>
+</TABLE>
+<TABLE ID="1126" SchemaName="KING" Tablename="ID_M_ITEMS" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="2052" YPos="972" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="32" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1127" ColName="M_ITEM_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1128" ColName="M_ITEM_REG_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="sysdate" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1129" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1130" ColName="M_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1131" ColName="M_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1132" ColName="BRAND_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1133" ColName="M_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1134" ColName="M_ITEM_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1135" ColName="M_BUILD_DAY" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1136" ColName="ENERGY_GRADE_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1137" ColName="M_POWER_CONSUM" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1138" ColName="COLOR_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1139" ColName="M_ITEM_SIZE_X" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1140" ColName="M_ITEM_SIZE_Y" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1141" ColName="M_ITEM_SIZE_Z" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1142" ColName="M_DISCONTINUED" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(10)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="'false'" Collation="" Check="" Comments="" Length="10" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1143" ColName="M_PIC" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1148" />
+<RELATION_START ID="1149" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1144" />
+<RELATION_END ID="1145" />
+<RELATION_END ID="1146" />
+<RELATION_END ID="1147" />
+<RELATION_END ID="1160" />
+<RELATION_END ID="1175" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1150" SchemaName="KING" Tablename="ID_T_INPUT_DATE" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="724" YPos="1364" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="39" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1151" ColName="T_INPUT_DATE_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1152" ColName="T_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1153" ColName="T_INPUT_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1154" ColName="T_STOCK_IN_CNT" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(4)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="4" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_END>
+<RELATION_END ID="1207" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1155" SchemaName="KING" Tablename="BRAND" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="928" YPos="203" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="40" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1156" ColName="BRAND_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1157" ColName="BRAND_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1158" />
+<RELATION_START ID="1159" />
+<RELATION_START ID="1160" />
+<RELATION_START ID="1203" />
+</RELATIONS_START>
+</TABLE>
+<TABLE ID="1161" SchemaName="KING" Tablename="ID_P_SUB_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1513" YPos="743" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="44" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1162" ColName="P_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1163" ColName="P_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1164" ColName="P_SUB_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1166" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1165" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1167" SchemaName="KING" Tablename="ID_CATEGORIES" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="1148" YPos="18" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="47" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1168" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1169" ColName="CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1170" />
+<RELATION_START ID="1171" />
+<RELATION_START ID="1172" />
+<RELATION_START ID="1173" />
+<RELATION_START ID="1174" />
+<RELATION_START ID="1175" />
+<RELATION_START ID="1180" />
+<RELATION_START ID="1204" />
+</RELATIONS_START>
+</TABLE>
+<TABLE ID="1176" SchemaName="KING" Tablename="ID_G_SUB_CATEGORY" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="162" YPos="430" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="54" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1177" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1178" ColName="G_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1179" ColName="G_SUB_CATEGORY_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1181" />
+<RELATION_START ID="1182" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1180" />
+</RELATIONS_END>
+</TABLE>
+<TABLE ID="1183" SchemaName="KING" Tablename="ID_T_ITEMS" LogicalTableName="" IsLogicalTableNameView="1" PrevTableName="" XPos="836" YPos="965" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="" TableOptions="" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="58" ConnInfoHashCodeB="" CVINFO0="tblCVpColName" CVINFO1="tblCVDataType" CVINFO2="tblCVNone" CVINFO3="tblCVNone" CVINFO4="tblCVNone" CVINFO5="tblCVNone" CVINFO6="tblCVNone" CVINFO7="tblCVNone" CVINFO8="tblCVNone" CVINFO9="tblCVNone" CVINFO10="tblCVNone" PKName="" >
+<COLUMNS>
+<COLUMN ID="1184" ColName="T_ITEM_NO" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(30)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="30" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1185" ColName="T_ITEM_REG_DATE" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="sysdate" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1186" ColName="CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1187" ColName="T_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1188" ColName="T_SUB_SUB_CATEGORY_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(50)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="50" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1189" ColName="BRAND_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1190" ColName="T_ITEM_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="1" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1191" ColName="T_ITEM_NAME" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1192" ColName="T_BUILD_DAY" LogicalName="" PrevColName="" Pos="0" idDatatype="DATE" DatatypeParams="(7)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="7" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1193" ColName="ENERGY_GRADE_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1194" ColName="T_POWER_CONSUM" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="1" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1195" ColName="COLOR_CODE" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(20)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="20" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1196" ColName="T_ITEM_SIZE_X" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1197" ColName="T_ITEM_SIZE_Y" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1198" ColName="T_ITEM_SIZE_Z" LogicalName="" PrevColName="" Pos="0" idDatatype="NUMBER" DatatypeParams="(5)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="0" Collation="" Check="" Comments="" Length="5" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1199" ColName="T_DISCONTINUED" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(10)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="'false'" Collation="" Check="" Comments="" Length="10" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1200" ColName="T_PIC" LogicalName="" PrevColName="" Pos="0" idDatatype="VARCHAR2" DatatypeParams="(200)" Width="0" Prec="0" PrimaryKey="0" NotNull="0" AutoInc="0" Seed="1" Increment="1" IsForeignKey="0" DefaultValue="" Collation="" Check="" Comments="" Length="200" Precision="0" Scale="0" >
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
+</COLUMNS>
+<RELATIONS_START>
+<RELATION_START ID="1207" />
+<RELATION_START ID="1208" />
+</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1201" />
+<RELATION_END ID="1202" />
+<RELATION_END ID="1203" />
+<RELATION_END ID="1204" />
+<RELATION_END ID="1205" />
+<RELATION_END ID="1206" />
+</RELATIONS_END>
+</TABLE>
+</TABLES>
+<RELATIONS>
+<RELATION ID="1023" RelationName="SYS_C007832" Kind="1" SrcTable="1005" DestTable="1000" FKFields="G_ITEM_CODE=G_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="4" />
+<RELATION ID="1052" RelationName="SYS_C007888" Kind="1" SrcTable="1034" DestTable="1029" FKFields="P_ITEM_CODE=P_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="8" />
+<RELATION ID="1074" RelationName="SYS_C007828" Kind="1" SrcTable="1070" DestTable="1005" FKFields="G_SUB_SUB_CATEGORY_CODE=G_SUB_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="68" CaptionOffsetY="-41" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" />
+<RELATION ID="1079" RelationName="SYS_C007843" Kind="1" SrcTable="1075" DestTable="1066" FKFields="T_SUB_CATEGORY_CODE=T_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="14" />
+<RELATION ID="1085" RelationName="SYS_C007884" Kind="1" SrcTable="1034" DestTable="1080" FKFields="P_ITEM_CODE=P_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="16" />
+<RELATION ID="1093" RelationName="SYS_C007827" Kind="1" SrcTable="1090" DestTable="1005" FKFields="COLOR_CODE=COLOR_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="19" />
+<RELATION ID="1094" RelationName="SYS_C007879" Kind="1" SrcTable="1090" DestTable="1034" FKFields="COLOR_CODE=COLOR_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="20" />
+<RELATION ID="1099" RelationName="SYS_C007895" Kind="1" SrcTable="1095" DestTable="1086" FKFields="M_SUB_CATEGORY_CODE=M_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="66" CaptionOffsetY="87" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="22" />
+<RELATION ID="1104" RelationName="SYS_C007875" Kind="1" SrcTable="1100" DestTable="1034" FKFields="P_SUB_CATEGORY_CODE=P_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="24" />
+<RELATION ID="1115" RelationName="SYS_C007836" Kind="1" SrcTable="1005" DestTable="1110" FKFields="G_ITEM_CODE=G_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
+<RELATION ID="1124" RelationName="SYS_C007826" Kind="1" SrcTable="1121" DestTable="1005" FKFields="ENERGY_GRADE_CODE=ENERGY_GRADE_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="30" />
+<RELATION ID="1125" RelationName="SYS_C007878" Kind="1" SrcTable="1121" DestTable="1034" FKFields="ENERGY_GRADE_CODE=ENERGY_GRADE_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="31" />
+<RELATION ID="1144" RelationName="SYS_C007905" Kind="1" SrcTable="1090" DestTable="1126" FKFields="COLOR_CODE=COLOR_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="33" />
+<RELATION ID="1145" RelationName="SYS_C007904" Kind="1" SrcTable="1121" DestTable="1126" FKFields="ENERGY_GRADE_CODE=ENERGY_GRADE_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="34" />
+<RELATION ID="1146" RelationName="SYS_C007901" Kind="1" SrcTable="1095" DestTable="1126" FKFields="M_SUB_CATEGORY_CODE=M_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="35" />
+<RELATION ID="1147" RelationName="SYS_C007906" Kind="1" SrcTable="1086" DestTable="1126" FKFields="M_SUB_SUB_CATEGORY_CODE=M_SUB_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="36" />
+<RELATION ID="1148" RelationName="SYS_C007910" Kind="1" SrcTable="1126" DestTable="1105" FKFields="M_ITEM_CODE=M_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="37" />
+<RELATION ID="1149" RelationName="SYS_C007914" Kind="1" SrcTable="1126" DestTable="1116" FKFields="M_ITEM_CODE=M_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="38" />
+<RELATION ID="1158" RelationName="SYS_C007825" Kind="1" SrcTable="1155" DestTable="1005" FKFields="BRAND_CODE=BRAND_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="41" />
+<RELATION ID="1159" RelationName="SYS_C007877" Kind="1" SrcTable="1155" DestTable="1034" FKFields="BRAND_CODE=BRAND_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="42" />
+<RELATION ID="1160" RelationName="SYS_C007903" Kind="1" SrcTable="1155" DestTable="1126" FKFields="BRAND_CODE=BRAND_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="43" />
+<RELATION ID="1165" RelationName="SYS_C007869" Kind="1" SrcTable="1100" DestTable="1161" FKFields="P_SUB_CATEGORY_CODE=P_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="45" />
+<RELATION ID="1166" RelationName="SYS_C007880" Kind="1" SrcTable="1161" DestTable="1034" FKFields="P_SUB_SUB_CATEGORY_CODE=P_SUB_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="46" />
+<RELATION ID="1170" RelationName="SYS_C007824" Kind="1" SrcTable="1167" DestTable="1005" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="48" />
+<RELATION ID="1171" RelationName="SYS_C007840" Kind="1" SrcTable="1167" DestTable="1075" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="49" />
+<RELATION ID="1172" RelationName="SYS_C007866" Kind="1" SrcTable="1167" DestTable="1100" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="50" />
+<RELATION ID="1173" RelationName="SYS_C007876" Kind="1" SrcTable="1167" DestTable="1034" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="51" />
+<RELATION ID="1174" RelationName="SYS_C007892" Kind="1" SrcTable="1167" DestTable="1095" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="52" />
+<RELATION ID="1175" RelationName="SYS_C007902" Kind="1" SrcTable="1167" DestTable="1126" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="53" />
+<RELATION ID="1180" RelationName="SYS_C007814" Kind="1" SrcTable="1167" DestTable="1176" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="55" />
+<RELATION ID="1181" RelationName="SYS_C007817" Kind="1" SrcTable="1176" DestTable="1070" FKFields="G_SUB_CATEGORY_CODE=G_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="56" />
+<RELATION ID="1182" RelationName="SYS_C007823" Kind="1" SrcTable="1176" DestTable="1005" FKFields="G_SUB_CATEGORY_CODE=G_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="57" />
+<RELATION ID="1201" RelationName="SYS_C007853" Kind="1" SrcTable="1090" DestTable="1183" FKFields="COLOR_CODE=COLOR_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="59" />
+<RELATION ID="1202" RelationName="SYS_C007852" Kind="1" SrcTable="1121" DestTable="1183" FKFields="ENERGY_GRADE_CODE=ENERGY_GRADE_CODE
+" FKFieldsComments="" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="60" />
+<RELATION ID="1203" RelationName="SYS_C007851" Kind="1" SrcTable="1155" DestTable="1183" FKFields="BRAND_CODE=BRAND_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="61" />
+<RELATION ID="1204" RelationName="SYS_C007850" Kind="1" SrcTable="1167" DestTable="1183" FKFields="CATEGORY_CODE=CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="62" />
+<RELATION ID="1205" RelationName="SYS_C007849" Kind="1" SrcTable="1075" DestTable="1183" FKFields="T_SUB_CATEGORY_CODE=T_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="63" />
+<RELATION ID="1206" RelationName="SYS_C007854" Kind="1" SrcTable="1066" DestTable="1183" FKFields="T_SUB_SUB_CATEGORY_CODE=T_SUB_SUB_CATEGORY_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="64" />
+<RELATION ID="1207" RelationName="SYS_C007858" Kind="1" SrcTable="1183" DestTable="1150" FKFields="T_ITEM_CODE=T_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="65" />
+<RELATION ID="1208" RelationName="SYS_C007862" Kind="1" SrcTable="1183" DestTable="1024" FKFields="T_ITEM_CODE=T_ITEM_CODE
+" FKFieldsComments="" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="0" Invisible="0" RefDef="Matching=0
+OnDelete=3
+OnUpdate=3
+" Comments="" FKRefDefIndex_Obj_id="-1" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="66" />
+</RELATIONS>
+<NOTES>
+</NOTES>
+<IMAGES>
+</IMAGES>
+</METADATA>
+<QUERYDATA>
+<QUERYRECORDS>
+</QUERYRECORDS>
+</QUERYDATA>
+<LINKEDMODELS>
+</LINKEDMODELS>
+</DBMODEL>
