@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 
@@ -12,145 +12,78 @@
 			<tr align="center">
 				<th bgcolor="lightgray">지점</th>
 				<td>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="jijuem">
 					<option value="">
 					<option value="A지점">A지점
 					<option value="A지점">B지점
 
 				</select>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				</td>
 				<th bgcolor="lightgray">  제조일  </th><br>
 				<td>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="jaejoDate_min_year">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="JaejoDate_min_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach
 				</select> 월&nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp;
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="jaejoDate_max_year">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="JaejoDate_max_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach
 				</select> 월
 				</td>
 			</tr>
+			<!------------------------------------------------------------------------------------------->
 			<tr align="center">
 				<th bgcolor="lightgray">제품명</th>
 				<td>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 						<input type="text" name="product_name"   >				
-				<!----------------------------------------------------------------->	
+			<!------------------------------------------------------------------------------------------->	
 				</td>
 				<th bgcolor="lightgray">입고일자  
 				<td colspan = 3>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_min_year">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_min_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach
 				</select> 월&nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp;
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_max_month">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_max_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 월	
-				<!----------------------------------------------------------------->	
+			<!------------------------------------------------------------------------------------------->	
 				</td>
 			<!-- 	<td></td>	-->
 			<!-- 	<td></td>	-->
@@ -160,72 +93,39 @@
 			<tr align="center">
 				<th bgcolor="lightgray">제품코드</th>
 				<td>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<input type="text" name="product_code">
-				<!----------------------------------------------------------------->					
+			<!------------------------------------------------------------------------------------------->				
 				</td>
 				<th bgcolor="lightgray">출고일자</th>
 				<td colspan = 3>
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_min_year">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_min_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach
 				</select> 월&nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp;
-				<!----------------------------------------------------------------->
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_max_month">
-					<option value="2010">2010
-					<option value="2011">2011
-					<option value="2012">2012
-					<option value="2013">2013
-					<option value="2014">2014
-					<option value="2015">2015
-					<option value="2016">2016
-					<option value="2017">2017
-					<option value="2018">2018
-					<option value="2019">2019
-					<option value="2020">2020
-					<option value="2021">2021
+			<c:forEach var="item" begin="2000" end="2021" step="1">
+                <option>${item}</option>
+            </c:forEach>
 				</select> 년 /&nbsp
+			<!------------------------------------------------------------------------------------------->
 				<select name="comeDate_max_month">
-					<option value="01">01
-					<option value="02">02
-					<option value="03">03
-					<option value="04">04
-					<option value="05">05
-					<option value="06">06
-					<option value="07">07
-					<option value="08">08
-					<option value="09">09
-					<option value="10">10
-					<option value="11">11
-					<option value="12">12
+			<c:forEach var="item" begin="1" end="31" step="1">
+                <option>${item}</option>
+            </c:forEach
 				</select> 월
+			<!------------------------------------------------------------------------------------------->
 				</tr>
-				<!----------------------------------------------------------------->
+
 				<tr align="center">
 				<th bgcolor="lightgray">브랜드</th>
 				<td>
