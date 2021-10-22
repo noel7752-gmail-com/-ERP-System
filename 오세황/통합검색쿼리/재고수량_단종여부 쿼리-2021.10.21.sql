@@ -45,6 +45,6 @@ commit
             AW05A5171GZA
 AF18T5774WZK
 
-
+                                            select * from ID_G_ITEMS    where G_ITEM_CODE = '777'
 
 
