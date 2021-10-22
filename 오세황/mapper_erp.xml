@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+<!-- mapper 태그 선언 -->
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+<mapper namespace="com.daybreak.prj.ERPDAO">
+
+
+<!-- 공용으로 사용할 검색 조건 -->
+<sql id="itemstaffWhere">
+
+     <!-- 검색 부분. 제품명 검색 -->
+     <if test="ITEM_NAME!=null and ITEM_NAME.length()>0">
+     and(
+          <!-- ============================================================== -->
+          <!-- 제품명 검색. -->
+          <!-- ============================================================== -->
+          upper(ITEM_NAME) like upper('%${ITEM_NAME}%')
+     )
+     </if>  
+     <if test="ITEM_CODE!=null and ITEM_CODE.length()>0">
+     and(
+          <!-- ============================================================== -->
+          <!-- 제품명 검색. -->
+          <!-- ============================================================== -->
+          upper(ITEM_CODE) like upper('%${ITEM_CODE}%')
+     )
+     </if>  
+
+
+
+
+
+
+
+
+
+
+
+</sql>
+
+
+<!-- 통합검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearcALLhList" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="java.util.HashMap">
+
+	select * from (select rownum RNUM,B.* from (
+   		select G.* from (       
+        select
+            IGI.G_ITEM_NO "ITEM_NO"
+            ,IGI.G_PIC "PIC"
+            ,IGI.CATEGORY_CODE "CATEGORY_CODE"
+            ,C.CATEGORY_NAME "CATEGORY_NAME"
+            ,IGSC.G_SUB_CATEGORY_NAME "SUB_CATEGORY_NAME"     
+            ,GSSC.G_SUB_SUB_CATEGORY_NAME "SUB_SUB_CATEGORY_NAME"
+            ,IGI.G_ITEM_CODE "ITEM_CODE"
+            ,IGI.G_ITEM_NAME "ITEM_NAME"
+            ,IGI.G_BUILD_DAY "BUILD_DAY"
+            ,B.BRAND_NAME "BRAND_NAME"
+            ,IGI.BRAND_CODE "BRAND_CODE"
+            ,EG.ENERGY_GRADE_NAME "ENERGY_GRADE_NAME"
+            ,IGI.G_POWER_CONSUM "POWER_CONSUM"
+            ,IGI.G_ITEM_SIZE_X  "ITEM_SIZE_X"
+            ,IGI.G_ITEM_SIZE_Y  "ITEM_SIZE_Y"
+            ,IGI.G_ITEM_SIZE_Z  "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME  "COLOR_NAME"
+            ,IGI.G_DISCONTINUED "DISCONTINUED"
+            ,IGI.G_ITEM_REG_DATE "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(G_STOCK_IN_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_INPUT_DATE GIPD on IGI.G_ITEM_CODE=GIPD.G_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(G_STOCK_OUT_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_OUTPUT_DATE GOPD on IGI.G_ITEM_CODE=GOPD.G_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_G_ITEMS IGI inner join ID_G_SUB_CATEGORY IGSC
+        on  IGI.G_SUB_CATEGORY_CODE =  IGSC.G_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IGI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IGI.CATEGORY_CODE) 
+        inner join ID_G_SUB_SUB_CATEGORY GSSC on GSSC.G_SUB_SUB_CATEGORY_CODE=IGI.G_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IGI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IGI.COLOR_CODE
+        union all
+        select
+            ITI.T_ITEM_NO
+            ,ITI.T_PIC
+            ,ITI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,ITSC.T_SUB_CATEGORY_NAME   
+            ,TSSC.T_SUB_SUB_CATEGORY_NAME
+            ,ITI.T_ITEM_CODE
+            ,ITI.T_ITEM_NAME
+            ,ITI.T_BUILD_DAY
+            ,B.BRAND_NAME
+            ,ITI.BRAND_CODE 
+            ,EG.ENERGY_GRADE_NAME
+            ,ITI.T_POWER_CONSUM
+            ,ITI.T_ITEM_SIZE_X
+            ,ITI.T_ITEM_SIZE_Y
+            ,ITI.T_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,ITI.T_DISCONTINUED
+            ,ITI.T_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(T_STOCK_IN_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_INPUT_DATE TIPD on ITI.T_ITEM_CODE=TIPD.T_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(T_STOCK_OUT_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_OUTPUT_DATE TOPD on ITI.T_ITEM_CODE=TOPD.T_ITEM_CODE
+            )
+        from (((((ID_T_ITEMS ITI inner join ID_T_SUB_CATEGORY ITSC
+        on  ITI.T_SUB_CATEGORY_CODE =  ITSC.T_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=ITI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=ITI.CATEGORY_CODE) 
+        inner join ID_T_SUB_SUB_CATEGORY TSSC on TSSC.T_SUB_SUB_CATEGORY_CODE=ITI.T_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on ITI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=ITI.COLOR_CODE
+        union all
+        select
+            IPI.P_ITEM_NO
+            ,IPI.P_PIC
+            ,IPI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,IPSC.P_SUB_CATEGORY_NAME  
+            ,PSSC.P_SUB_SUB_CATEGORY_NAME
+            ,IPI.P_ITEM_CODE
+            ,IPI.P_ITEM_NAME
+            ,IPI.P_BUILD_DAY
+            ,B.BRAND_NAME
+            ,IPI.BRAND_CODE 
+            ,EG.ENERGY_GRADE_NAME
+            ,IPI.P_POWER_CONSUM
+            ,IPI.P_ITEM_SIZE_X
+            ,IPI.P_ITEM_SIZE_Y
+            ,IPI.P_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,IPI.P_DISCONTINUED
+            ,IPI.P_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(P_STOCK_IN_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_INPUT_DATE PIPD on IPI.P_ITEM_CODE=PIPD.P_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(P_STOCK_OUT_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_OUTPUT_DATE POPD on IPI.P_ITEM_CODE=POPD.P_ITEM_CODE
+            )
+        from (((((ID_P_ITEMS IPI inner join ID_P_SUB_CATEGORY IPSC
+        on  IPI.P_SUB_CATEGORY_CODE =  IPSC.P_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IPI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IPI.CATEGORY_CODE) 
+        inner join ID_P_SUB_SUB_CATEGORY PSSC on PSSC.P_SUB_SUB_CATEGORY_CODE=IPI.P_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IPI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IPI.COLOR_CODE
+        union all
+        select
+            IMI.M_ITEM_NO
+            ,IMI.M_PIC
+            ,IMI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,IMSC.M_SUB_CATEGORY_NAME    
+            ,MSSC.M_SUB_SUB_CATEGORY_NAME
+            ,IMI.M_ITEM_CODE
+            ,IMI.M_ITEM_NAME
+            ,IMI.M_BUILD_DAY
+            ,B.BRAND_NAME
+            ,IMI.BRAND_CODE 
+            ,EG.ENERGY_GRADE_NAME
+            ,IMI.M_POWER_CONSUM
+            ,IMI.M_ITEM_SIZE_X
+            ,IMI.M_ITEM_SIZE_Y
+            ,IMI.M_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,IMI.M_DISCONTINUED
+            ,IMI.M_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(M_STOCK_IN_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_INPUT_DATE MIPD on IMI.M_ITEM_CODE=MIPD.M_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(M_STOCK_OUT_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_OUTPUT_DATE MOPD on IMI.M_ITEM_CODE=MOPD.M_ITEM_CODE
+            )
+        from (((((ID_M_ITEMS IMI inner join ID_M_SUB_CATEGORY IMSC
+        on  IMI.M_SUB_CATEGORY_CODE =  IMSC.M_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IMI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IMI.CATEGORY_CODE) 
+        inner join ID_M_SUB_SUB_CATEGORY MSSC on MSSC.M_SUB_SUB_CATEGORY_CODE=IMI.M_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IMI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IMI.COLOR_CODE) "G"
+        where
+        1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+    ) B <![CDATA[where rownum<=${selectPageNo*rowCntPerPage}) where RNUM>=${selectPageNo*rowCntPerPage-rowCntPerPage+1}]]>
+    
+</select>
+
+
+
+
+<!-- 총검색결과 수 가져오는 쿼리 -->
+<select id="getSearchAllCnt" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="int">
+
+   		select COUNT(*) from (       
+        select
+            IGI.G_ITEM_NO "ITEM_NO"
+            ,IGI.G_PIC "PIC"
+            ,IGI.CATEGORY_CODE "CATEGORY_CODE"
+            ,C.CATEGORY_NAME "CATEGORY_NAME"
+            ,IGSC.G_SUB_CATEGORY_NAME "SUB_CATEGORY_NAME"     
+            ,GSSC.G_SUB_SUB_CATEGORY_NAME "SUB_SUB_CATEGORY_NAME"
+            ,IGI.G_ITEM_CODE "ITEM_CODE"
+            ,IGI.G_ITEM_NAME "ITEM_NAME"
+            ,IGI.G_BUILD_DAY "BUILD_DAY"
+            ,B.BRAND_NAME "BRAND_NAME"
+            ,IGI.BRAND_CODE "BRAND_CODE"
+            ,EG.ENERGY_GRADE_NAME "ENERGY_GRADE_NAME"
+            ,IGI.G_POWER_CONSUM "POWER_CONSUM"
+            ,IGI.G_ITEM_SIZE_X  "ITEM_SIZE_X"
+            ,IGI.G_ITEM_SIZE_Y  "ITEM_SIZE_Y"
+            ,IGI.G_ITEM_SIZE_Z  "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME  "COLOR_NAME"
+            ,IGI.G_DISCONTINUED "DISCONTINUED"
+            ,IGI.G_ITEM_REG_DATE "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(G_STOCK_IN_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_INPUT_DATE GIPD on IGI.G_ITEM_CODE=GIPD.G_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(G_STOCK_OUT_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_OUTPUT_DATE GOPD on IGI.G_ITEM_CODE=GOPD.G_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_G_ITEMS IGI inner join ID_G_SUB_CATEGORY IGSC
+        on  IGI.G_SUB_CATEGORY_CODE =  IGSC.G_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IGI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IGI.CATEGORY_CODE) 
+        inner join ID_G_SUB_SUB_CATEGORY GSSC on GSSC.G_SUB_SUB_CATEGORY_CODE=IGI.G_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IGI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IGI.COLOR_CODE
+        union all
+        select
+            ITI.T_ITEM_NO
+            ,ITI.T_PIC
+            ,ITI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,ITSC.T_SUB_CATEGORY_NAME   
+            ,TSSC.T_SUB_SUB_CATEGORY_NAME
+            ,ITI.T_ITEM_CODE
+            ,ITI.T_ITEM_NAME
+            ,ITI.T_BUILD_DAY
+            ,B.BRAND_NAME
+            ,ITI.BRAND_CODE
+            ,EG.ENERGY_GRADE_NAME
+            ,ITI.T_POWER_CONSUM
+            ,ITI.T_ITEM_SIZE_X
+            ,ITI.T_ITEM_SIZE_Y
+            ,ITI.T_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,ITI.T_DISCONTINUED
+            ,ITI.T_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(T_STOCK_IN_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_INPUT_DATE TIPD on ITI.T_ITEM_CODE=TIPD.T_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(T_STOCK_OUT_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_OUTPUT_DATE TOPD on ITI.T_ITEM_CODE=TOPD.T_ITEM_CODE
+            )
+        from (((((ID_T_ITEMS ITI inner join ID_T_SUB_CATEGORY ITSC
+        on  ITI.T_SUB_CATEGORY_CODE =  ITSC.T_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=ITI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=ITI.CATEGORY_CODE) 
+        inner join ID_T_SUB_SUB_CATEGORY TSSC on TSSC.T_SUB_SUB_CATEGORY_CODE=ITI.T_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on ITI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=ITI.COLOR_CODE
+        union all
+        select
+            IPI.P_ITEM_NO
+            ,IPI.P_PIC
+            ,IPI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,IPSC.P_SUB_CATEGORY_NAME  
+            ,PSSC.P_SUB_SUB_CATEGORY_NAME
+            ,IPI.P_ITEM_CODE
+            ,IPI.P_ITEM_NAME
+            ,IPI.P_BUILD_DAY
+            ,B.BRAND_NAME
+            ,IPI.BRAND_CODE
+            ,EG.ENERGY_GRADE_NAME
+            ,IPI.P_POWER_CONSUM
+            ,IPI.P_ITEM_SIZE_X
+            ,IPI.P_ITEM_SIZE_Y
+            ,IPI.P_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,IPI.P_DISCONTINUED
+            ,IPI.P_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(P_STOCK_IN_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_INPUT_DATE PIPD on IPI.P_ITEM_CODE=PIPD.P_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(P_STOCK_OUT_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_OUTPUT_DATE POPD on IPI.P_ITEM_CODE=POPD.P_ITEM_CODE
+            )
+        from (((((ID_P_ITEMS IPI inner join ID_P_SUB_CATEGORY IPSC
+        on  IPI.P_SUB_CATEGORY_CODE =  IPSC.P_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IPI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IPI.CATEGORY_CODE) 
+        inner join ID_P_SUB_SUB_CATEGORY PSSC on PSSC.P_SUB_SUB_CATEGORY_CODE=IPI.P_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IPI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IPI.COLOR_CODE
+        union all
+        select
+            IMI.M_ITEM_NO
+            ,IMI.M_PIC
+            ,IMI.CATEGORY_CODE 
+            ,C.CATEGORY_NAME
+            ,IMSC.M_SUB_CATEGORY_NAME    
+            ,MSSC.M_SUB_SUB_CATEGORY_NAME
+            ,IMI.M_ITEM_CODE
+            ,IMI.M_ITEM_NAME
+            ,IMI.M_BUILD_DAY
+            ,B.BRAND_NAME
+            ,IMI.BRAND_CODE
+            ,EG.ENERGY_GRADE_NAME
+            ,IMI.M_POWER_CONSUM
+            ,IMI.M_ITEM_SIZE_X
+            ,IMI.M_ITEM_SIZE_Y
+            ,IMI.M_ITEM_SIZE_Z
+            ,COL.COLOR_NAME
+            ,IMI.M_DISCONTINUED
+            ,IMI.M_ITEM_REG_DATE
+            
+            ,(
+            select
+                 nvl(SUM(M_STOCK_IN_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_INPUT_DATE MIPD on IMI.M_ITEM_CODE=MIPD.M_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(M_STOCK_OUT_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_OUTPUT_DATE MOPD on IMI.M_ITEM_CODE=MOPD.M_ITEM_CODE
+            )
+        from (((((ID_M_ITEMS IMI inner join ID_M_SUB_CATEGORY IMSC
+        on  IMI.M_SUB_CATEGORY_CODE =  IMSC.M_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IMI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IMI.CATEGORY_CODE) 
+        inner join ID_M_SUB_SUB_CATEGORY MSSC on MSSC.M_SUB_SUB_CATEGORY_CODE=IMI.M_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IMI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IMI.COLOR_CODE) "G"
+        where
+        1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+    
+</select>
+
+
+
+<!-- 게시판 글 입력하는 insert 문을 내포한 insert 태그 선언 -->
+<insert id='insertErp' parameterType="com.daybreak.prj.DTO.ERPDTO">
+insert into ID_g_items(  			
+          g_item_no
+          ,category_code
+          ,g_sub_category_code
+          ,g_sub_sub_category_code
+          ,brand_code
+          ,g_item_code
+          ,g_item_name
+          ,g_build_day 
+          <!-- 만약에 ERPDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <!-- <참고> pic 속성변수에는 업로드된 파일의 새이름이 저장되어 있다. -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          ,g_pic 
+          </if>
+          ,energy_grade_code
+          ,g_power_consum 
+          ,color_code
+          ,g_item_size_x
+          ,g_item_size_y
+          ,g_item_size_z
+          ,g_discontinued 		
+     ) values (
+     		(select nvl(max(g_item_no),0)+1 from ID_g_items)
+          ,#{category_code} 
+          ,#{g_sub_category_code} 
+          ,#{g_sub_sub_category_code} 
+          ,#{brand_code} 
+          ,#{g_item_code} 
+          ,#{g_item_name} 
+          ,#{g_build_day} 
+          <!-- 만약에 BoardDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          <!-- pic 속성변수에 데이터 꺼내서 '를 붙여서 표현하기 -->
+          ,#{g_pic }
+          </if>
+          ,#{energy_grade_code} 
+          ,#{g_power_consum} 
+          ,#{color_code} 
+          ,#{g_item_size_x} 
+          ,#{g_item_size_y} 
+          ,#{g_item_size_z}
+          ,#{g_discontinued} 
+     )
+
+</insert>
+
+
+<!-- 게시판 이미지 이름 가져오는 select 문을 내포한 select 태그 선언 -->
+<!-- 이거는 테이블이 수정안되서,바꿔야함 -->
+<select id="getPic" parameterType="com.daybreak.prj.DTO.ERPDTO" resultType="String">
+     select g_pic from BO_ID_g_items where g_item_code=#{g_item_code}
+</select>
+
+
+<!-- 삭제할 이미지 이름 가져오는 ... -->
+<select id="G_pic" parameterType="com.daybreak.prj.DTO.ERPDTO" resultType="String">
+     select g_pic from ID_g_items where g_item_code=#{paramV}
+</select>
+
+
+<!-- 삭제 존재 개수 DB 에서 확인 -->
+<select id="get_del_ERPCnt" parameterType="com.daybreak.prj.DAO.ERPDAO" resultType="int">
+
+     <if test="category_code==1">
+     select count(*) from ID_g_items where g_item_code=#{paramV}
+     </if> 
+     <if test="category_code==2">
+     select count(*) from ID_t_items where t_item_code=#{paramV}
+     </if>
+     <if test="category_code==3">
+     select count(*) from ID_p_items where p_item_code=#{paramV}
+     </if>
+     <if test="category_code==4">
+     select count(*) from ID_m_items where m_item_code=#{paramV}
+     </if>
+
+</select>
+
+
+<!-- 각 items 테이블의 제품 삭제. -->
+<delete id="delete_erp" parameterType="com.daybreak.prj.DAO.ERPDAO">
+     <if test="category_code==1">
+          delete
+
+          from 
+               ID_G_ITEMS        
+          where 
+               g_item_code=#{paramV}
+     </if> 
+     <if test="category_code==2">
+          delete
+
+          from 
+               ID_T_ITEMS        
+          where 
+               t_item_code=#{paramV}
+     </if> 
+     <if test="category_code==3">
+          delete
+
+          from 
+               ID_P_ITEMS        
+          where 
+               p_item_code=#{paramV}
+     </if>
+     <if test="category_code==4">
+          delete
+
+          from 
+               ID_M_ITEMS        
+          where 
+               m_item_code=#{paramV}
+     </if>
+</delete>
+
+<!-- 각 대분류별 input 테이블쪽 삭제 -->
+<delete id="delete_input" parameterType="com.daybreak.prj.DAO.ERPDAO">
+     <if test="category_code==1">
+          delete
+
+          from 
+               ID_G_INPUT_DATE        
+          where 
+               g_item_code=#{paramV}
+     </if>
+     <if test="category_code==2">
+          delete
+
+          from 
+               ID_T_INPUT_DATE        
+          where 
+               t_item_code=#{paramV}
+     </if>
+     <if test="category_code==3">
+          delete
+
+          from 
+               ID_P_INPUT_DATE        
+          where 
+               p_item_code=#{paramV}
+     </if>
+     <if test="category_code==4">
+          delete
+
+          from 
+               ID_M_INPUT_DATE        
+          where 
+               m_item_code=#{paramV}
+     </if>
+</delete>
+
+<!-- 각 대분류별 output 테이블 쪽 삭제 -->
+<delete id="delete_output" parameterType="com.daybreak.prj.DAO.ERPDAO">
+     <if test="category_code==1">
+          delete
+
+          from 
+               ID_G_OUTPUT_DATE        
+          where 
+               g_item_code=#{paramV}
+     </if>
+     <if test="category_code==2">
+          delete
+
+          from 
+               ID_T_OUTPUT_DATE        
+          where 
+               t_item_code=#{paramV}
+     </if>
+     <if test="category_code==3">
+          delete
+
+          from 
+               ID_P_OUTPUT_DATE        
+          where 
+               p_item_code=#{paramV}
+     </if>
+     <if test="category_code==4">
+          delete
+
+          from 
+               ID_M_OUTPUT_DATE        
+          where 
+               m_item_code=#{paramV}
+     </if>
+</delete>
+
+
+
+
+
+<!-- 여기서부터는 재고관리 각카테고리의 검색리스트를 뽑는 셀랙트 쿼리입니다.  -->
+<!-- 가전검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_G_List" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="java.util.HashMap">
+
+	select * from (select rownum RNUM,B.* from (      
+        select
+            IGI.G_ITEM_NO "ITEM_NO"
+            ,IGI.G_PIC "PIC"
+            ,C.CATEGORY_NAME "CATEGORY_NAME"
+            ,IGSC.G_SUB_CATEGORY_NAME "SUB_CATEGORY_NAME"     
+            ,GSSC.G_SUB_SUB_CATEGORY_NAME "SUB_SUB_CATEGORY_NAME"
+            ,IGI.G_ITEM_CODE "ITEM_CODE"
+            ,IGI.G_ITEM_NAME "ITEM_NAME"
+            ,IGI.G_BUILD_DAY "BUILD_DAY"
+            ,B.BRAND_NAME "BRAND_NAME"
+            ,IGI.BRAND_CODE "BRAND_CODE"
+            ,EG.ENERGY_GRADE_NAME "ENERGY_GRADE_NAME"
+            ,IGI.G_POWER_CONSUM "POWER_CONSUM"
+            ,IGI.G_ITEM_SIZE_X  "ITEM_SIZE_X"
+            ,IGI.G_ITEM_SIZE_Y  "ITEM_SIZE_Y"
+            ,IGI.G_ITEM_SIZE_Z  "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME  "COLOR_NAME"
+            ,IGI.G_DISCONTINUED "DISCONTINUED"
+            ,IGI.G_ITEM_REG_DATE "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(G_STOCK_IN_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_INPUT_DATE GIPD on IGI.G_ITEM_CODE=GIPD.G_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(G_STOCK_OUT_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_OUTPUT_DATE GOPD on IGI.G_ITEM_CODE=GOPD.G_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_G_ITEMS IGI inner join ID_G_SUB_CATEGORY IGSC
+        on  IGI.G_SUB_CATEGORY_CODE =  IGSC.G_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IGI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IGI.CATEGORY_CODE) 
+        inner join ID_G_SUB_SUB_CATEGORY GSSC on GSSC.G_SUB_SUB_CATEGORY_CODE=IGI.G_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IGI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IGI.COLOR_CODE
+ 
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by G_ITEM_REG_DATE desc
+    ) B <![CDATA[where rownum<=${selectPageNo*rowCntPerPage}) where RNUM>=${selectPageNo*rowCntPerPage-rowCntPerPage+1}]]>
+    
+</select>
+
+<!-- TV 검색 개수 가져오는 셀렉트 쿼리 -->
+<select id="getSearch_T_List" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="java.util.HashMap">
+
+	select * from (select rownum RNUM,B.* from (      
+        select
+            ITI.T_ITEM_NO                   "ITEM_NO"
+            ,ITI.T_PIC                      "PIC"
+            ,C.CATEGORY_NAME                "CATEGORY_NAME"
+            ,ITSC.T_SUB_CATEGORY_NAME        "SUB_CATEGORY_NAME"   
+            ,TSSC.T_SUB_SUB_CATEGORY_NAME    "SUB_SUB_CATEGORY_NAME"
+            ,ITI.T_ITEM_CODE                 "ITEM_CODE"
+            ,ITI.T_ITEM_NAME                  "ITEM_NAME"
+            ,ITI.T_BUILD_DAY                 "BUILD_DAY"
+            ,B.BRAND_NAME                    "BRAND_NAME"
+            ,ITI.BRAND_CODE                  "BRAND_CODE"          
+            ,EG.ENERGY_GRADE_NAME            "ENERGY_GRADE_NAME"     
+            ,ITI.T_POWER_CONSUM              "POWER_CONSUM"
+            ,ITI.T_ITEM_SIZE_X               "ITEM_SIZE_X"
+            ,ITI.T_ITEM_SIZE_Y               "ITEM_SIZE_Y"
+            ,ITI.T_ITEM_SIZE_Z                "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                  "COLOR_NAME"
+            ,ITI.T_DISCONTINUED              "DISCONTINUED"
+            ,ITI.T_ITEM_REG_DATE             "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(T_STOCK_IN_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_INPUT_DATE TIPD on ITI.T_ITEM_CODE=TIPD.T_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(T_STOCK_OUT_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_OUTPUT_DATE TOPD on ITI.T_ITEM_CODE=TOPD.T_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_T_ITEMS ITI inner join ID_T_SUB_CATEGORY ITSC
+        on  ITI.T_SUB_CATEGORY_CODE =  ITSC.T_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=ITI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=ITI.CATEGORY_CODE) 
+        inner join ID_T_SUB_SUB_CATEGORY TSSC on TSSC.T_SUB_SUB_CATEGORY_CODE=ITI.T_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on ITI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=ITI.COLOR_CODE
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by T_ITEM_REG_DATE desc
+    ) B <![CDATA[where rownum<=${selectPageNo*rowCntPerPage}) where RNUM>=${selectPageNo*rowCntPerPage-rowCntPerPage+1}]]>
+    
+</select>
+
+<!-- PC검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_P_List" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="java.util.HashMap">
+
+	select * from (select rownum RNUM,B.* from (      
+        select
+            IPI.P_ITEM_NO                         "ITEM_NO"
+            ,IPI.P_PIC                            "PIC"
+            ,C.CATEGORY_NAME                      "CATEGORY_NAME"
+            ,IPSC.P_SUB_CATEGORY_NAME             "SUB_CATEGORY_NAME"          
+            ,PSSC.P_SUB_SUB_CATEGORY_NAME         "SUB_SUB_CATEGORY_NAME"
+            ,IPI.P_ITEM_CODE                      "ITEM_CODE"
+            ,IPI.P_ITEM_NAME                      "ITEM_NAME"
+            ,IPI.P_BUILD_DAY                      "BUILD_DAY"
+            ,B.BRAND_NAME                         "BRAND_NAME"
+            ,IPI.BRAND_CODE                       "BRAND_CODE"      
+            ,EG.ENERGY_GRADE_NAME                 "ENERGY_GRADE_NAME" 
+            ,IPI.P_POWER_CONSUM                   "POWER_CONSUM"
+            ,IPI.P_ITEM_SIZE_X                    "ITEM_SIZE_X"
+            ,IPI.P_ITEM_SIZE_Y                    "ITEM_SIZE_Y"
+            ,IPI.P_ITEM_SIZE_Z                    "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                       "COLOR_NAME"
+            ,IPI.P_DISCONTINUED                   "DISCONTINUED"
+            ,IPI.P_ITEM_REG_DATE                  "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(P_STOCK_IN_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_INPUT_DATE PIPD on IPI.P_ITEM_CODE=PIPD.P_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(P_STOCK_OUT_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_OUTPUT_DATE POPD on IPI.P_ITEM_CODE=POPD.P_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_P_ITEMS IPI inner join ID_P_SUB_CATEGORY IPSC
+        on  IPI.P_SUB_CATEGORY_CODE =  IPSC.P_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IPI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IPI.CATEGORY_CODE) 
+        inner join ID_P_SUB_SUB_CATEGORY PSSC on PSSC.P_SUB_SUB_CATEGORY_CODE=IPI.P_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IPI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IPI.COLOR_CODE
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by P_ITEM_REG_DATE desc
+    ) B <![CDATA[where rownum<=${selectPageNo*rowCntPerPage}) where RNUM>=${selectPageNo*rowCntPerPage-rowCntPerPage+1}]]>
+    
+</select>
+
+<!-- 모바일검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_M_List" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="java.util.HashMap">
+
+	select * from (select rownum RNUM,B.* from (      
+        select
+            IMI.M_ITEM_NO                    "ITEM_NO"
+            ,IMI.M_PIC                       "PIC"
+            ,C.CATEGORY_NAME                 "CATEGORY_NAME"
+            ,IMSC.M_SUB_CATEGORY_NAME        "SUB_CATEGORY_NAME"    
+            ,MSSC.M_SUB_SUB_CATEGORY_NAME    "SUB_SUB_CATEGORY_NAME"
+            ,IMI.M_ITEM_CODE                 "ITEM_CODE"
+            ,IMI.M_ITEM_NAME                 "ITEM_NAME"
+            ,IMI.M_BUILD_DAY                 "BUILD_DAY"
+            ,B.BRAND_NAME                    "BRAND_NAME"
+            ,IMI.BRAND_CODE                  "BRAND_CODE"  
+            ,EG.ENERGY_GRADE_NAME            "ENERGY_GRADE_NAME" 
+            ,IMI.M_POWER_CONSUM              "POWER_CONSUM"
+            ,IMI.M_ITEM_SIZE_X               "ITEM_SIZE_X"
+            ,IMI.M_ITEM_SIZE_Y               "ITEM_SIZE_Y"
+            ,IMI.M_ITEM_SIZE_Z               "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                  "COLOR_NAME"
+            ,IMI.M_DISCONTINUED              "DISCONTINUED"
+            ,IMI.M_ITEM_REG_DATE             "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(M_STOCK_IN_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_INPUT_DATE MIPD on IMI.M_ITEM_CODE=MIPD.M_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(M_STOCK_OUT_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_OUTPUT_DATE MOPD on IMI.M_ITEM_CODE=MOPD.M_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_M_ITEMS IMI inner join ID_M_SUB_CATEGORY IMSC
+        on  IMI.M_SUB_CATEGORY_CODE =  IMSC.M_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IMI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IMI.CATEGORY_CODE) 
+        inner join ID_M_SUB_SUB_CATEGORY MSSC on MSSC.M_SUB_SUB_CATEGORY_CODE=IMI.M_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IMI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IMI.COLOR_CODE
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by M_ITEM_REG_DATE desc
+    ) B <![CDATA[where rownum<=${selectPageNo*rowCntPerPage}) where RNUM>=${selectPageNo*rowCntPerPage-rowCntPerPage+1}]]>
+    
+</select>
+
+<!-- 여기서부터는 검색개수리턴 셀랙트 쿼리입니다.  -->
+<!-- 가전검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_G_List_Cnt" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="int">
+
+	select count(*) from (      
+        select
+            IGI.G_ITEM_NO "ITEM_NO"
+            ,IGI.G_PIC "PIC"
+            ,C.CATEGORY_NAME "CATEGORY_NAME"
+            ,IGSC.G_SUB_CATEGORY_NAME "SUB_CATEGORY_NAME"     
+            ,GSSC.G_SUB_SUB_CATEGORY_NAME "SUB_SUB_CATEGORY_NAME"
+            ,IGI.G_ITEM_CODE "ITEM_CODE"
+            ,IGI.G_ITEM_NAME "ITEM_NAME"
+            ,IGI.G_BUILD_DAY "BUILD_DAY"
+            ,B.BRAND_NAME "BRAND_NAME"
+            ,IGI.BRAND_CODE "BRAND_CODE"
+            ,EG.ENERGY_GRADE_NAME "ENERGY_GRADE_NAME"
+            ,IGI.G_POWER_CONSUM "POWER_CONSUM"
+            ,IGI.G_ITEM_SIZE_X  "ITEM_SIZE_X"
+            ,IGI.G_ITEM_SIZE_Y  "ITEM_SIZE_Y"
+            ,IGI.G_ITEM_SIZE_Z  "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME  "COLOR_NAME"
+            ,IGI.G_DISCONTINUED "DISCONTINUED"
+            ,IGI.G_ITEM_REG_DATE "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(G_STOCK_IN_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_INPUT_DATE GIPD on IGI.G_ITEM_CODE=GIPD.G_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(G_STOCK_OUT_CNT),0)
+            from
+                   ID_G_ITEMS IGI inner join ID_G_OUTPUT_DATE GOPD on IGI.G_ITEM_CODE=GOPD.G_ITEM_CODE
+            ) "STOCK"
+        from (((((ID_G_ITEMS IGI inner join ID_G_SUB_CATEGORY IGSC
+        on  IGI.G_SUB_CATEGORY_CODE =  IGSC.G_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IGI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IGI.CATEGORY_CODE) 
+        inner join ID_G_SUB_SUB_CATEGORY GSSC on GSSC.G_SUB_SUB_CATEGORY_CODE=IGI.G_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IGI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IGI.COLOR_CODE
+     )
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+     
+    
+</select>
+
+<!-- 가전 검색 개수 가져오는 셀렉트 쿼리 -->
+<select id="getSearch_T_List_Cnt" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="int">
+
+	select count(*) from (     
+        select
+            ITI.T_ITEM_NO                    "ITEM_NO"
+            ,ITI.T_PIC                       "PIC"
+            ,C.CATEGORY_NAME                 "CATEGORY_NAME"
+            ,ITSC.T_SUB_CATEGORY_NAME             "SUB_CATEGORY_NAME"  
+            ,TSSC.T_SUB_SUB_CATEGORY_NAME         "SUB_SUB_CATEGORY_NAME"
+            ,ITI.T_ITEM_CODE                      "ITEM_CODE"
+            ,ITI.T_ITEM_NAME                      "ITEM_NAME"
+            ,ITI.T_BUILD_DAY                      "BUILD_DAY"
+            ,B.BRAND_NAME                         "BRAND_NAME"
+            ,ITI.BRAND_CODE                       "BRAND_CODE"      
+            ,EG.ENERGY_GRADE_NAME                 "ENERGY_GRADE_NAME"
+            ,ITI.T_POWER_CONSUM                   "POWER_CONSUM"
+            ,ITI.T_ITEM_SIZE_X                    "ITEM_SIZE_X"
+            ,ITI.T_ITEM_SIZE_Y                    "ITEM_SIZE_Y"
+            ,ITI.T_ITEM_SIZE_Z                    "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                       "COLOR_NAME"
+            ,ITI.T_DISCONTINUED                   "DISCONTINUED"
+            ,ITI.T_ITEM_REG_DATE                  "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(T_STOCK_IN_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_INPUT_DATE TIPD on ITI.T_ITEM_CODE=TIPD.T_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(T_STOCK_OUT_CNT),0)
+            from
+                   ID_T_ITEMS ITI inner join ID_T_OUTPUT_DATE TOPD on ITI.T_ITEM_CODE=TOPD.T_ITEM_CODE
+            )
+        from (((((ID_T_ITEMS ITI inner join ID_T_SUB_CATEGORY ITSC
+        on  ITI.T_SUB_CATEGORY_CODE =  ITSC.T_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=ITI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=ITI.CATEGORY_CODE) 
+        inner join ID_T_SUB_SUB_CATEGORY TSSC on TSSC.T_SUB_SUB_CATEGORY_CODE=ITI.T_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on ITI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=ITI.COLOR_CODE
+     ) 
+
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+</select>
+
+<!-- 가전검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_P_List_Cnt" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="int">
+
+	select count(*) from (
+        select
+            IPI.P_ITEM_NO                    "ITEM_NO"
+            ,IPI.P_PIC                       "PIC"
+            ,C.CATEGORY_NAME                 "CATEGORY_NAME"
+            ,IPSC.P_SUB_CATEGORY_NAME        "SUB_CATEGORY_NAME"   
+            ,PSSC.P_SUB_SUB_CATEGORY_NAME    "SUB_SUB_CATEGORY_NAME"
+            ,IPI.P_ITEM_CODE                 "ITEM_CODE"
+            ,IPI.P_ITEM_NAME                 "ITEM_NAME"
+            ,IPI.P_BUILD_DAY                 "BUILD_DAY"
+            ,B.BRAND_NAME                    "BRAND_NAME"
+            ,IPI.BRAND_CODE                  "BRAND_CODE"   
+            ,EG.ENERGY_GRADE_NAME            "ENERGY_GRADE_NAME"  
+            ,IPI.P_POWER_CONSUM              "POWER_CONSUM"
+            ,IPI.P_ITEM_SIZE_X               "ITEM_SIZE_X"
+            ,IPI.P_ITEM_SIZE_Y               "ITEM_SIZE_Y"
+            ,IPI.P_ITEM_SIZE_Z               "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                  "COLOR_NAME"
+            ,IPI.P_DISCONTINUED              "DISCONTINUED"
+            ,IPI.P_ITEM_REG_DATE             "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(P_STOCK_IN_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_INPUT_DATE PIPD on IPI.P_ITEM_CODE=PIPD.P_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(P_STOCK_OUT_CNT),0)
+            from
+                   ID_P_ITEMS IPI inner join ID_P_OUTPUT_DATE POPD on IPI.P_ITEM_CODE=POPD.P_ITEM_CODE
+            )
+        from (((((ID_P_ITEMS IPI inner join ID_P_SUB_CATEGORY IPSC
+        on  IPI.P_SUB_CATEGORY_CODE =  IPSC.P_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IPI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IPI.CATEGORY_CODE) 
+        inner join ID_P_SUB_SUB_CATEGORY PSSC on PSSC.P_SUB_SUB_CATEGORY_CODE=IPI.P_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IPI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IPI.COLOR_CODE
+     )
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+    
+</select>
+
+<!-- 가전검색리스트 뽑는 셀렉트 쿼리 -->
+<select id="getSearch_M_List_Cnt" parameterType="com.daybreak.prj.DTO.ERPSearchDTO"  resultType="int">
+
+	select count(*) from (
+        select
+            IMI.M_ITEM_NO                         "ITEM_NO"
+            ,IMI.M_PIC                            "PIC"
+            ,C.CATEGORY_NAME                      "CATEGORY_NAME"
+            ,IMSC.M_SUB_CATEGORY_NAME             "SUB_CATEGORY_NAME"   
+            ,MSSC.M_SUB_SUB_CATEGORY_NAME         "SUB_SUB_CATEGORY_NAME"
+            ,IMI.M_ITEM_CODE                      "ITEM_CODE"
+            ,IMI.M_ITEM_NAME                      "ITEM_NAME"
+            ,IMI.M_BUILD_DAY                      "BUILD_DAY"
+            ,B.BRAND_NAME                         "BRAND_NAME"
+            ,IMI.BRAND_CODE                       "BRAND_CODE"   
+            ,EG.ENERGY_GRADE_NAME                 "ENERGY_GRADE_NAME"      
+            ,IMI.M_POWER_CONSUM                   "POWER_CONSUM"
+            ,IMI.M_ITEM_SIZE_X                    "ITEM_SIZE_X"
+            ,IMI.M_ITEM_SIZE_Y                    "ITEM_SIZE_Y"
+            ,IMI.M_ITEM_SIZE_Z                    "ITEM_SIZE_Z"
+            ,COL.COLOR_NAME                       "COLOR_NAME"
+            ,IMI.M_DISCONTINUED                   "DISCONTINUED"
+            ,IMI.M_ITEM_REG_DATE                  "ITEM_REG_DATE"
+            
+            ,(
+            select
+                 nvl(SUM(M_STOCK_IN_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_INPUT_DATE MIPD on IMI.M_ITEM_CODE=MIPD.M_ITEM_CODE
+            )-
+            (
+            select
+                 nvl(SUM(M_STOCK_OUT_CNT),0)
+            from
+                   ID_M_ITEMS IMI inner join ID_M_OUTPUT_DATE MOPD on IMI.M_ITEM_CODE=MOPD.M_ITEM_CODE
+            )
+        from (((((ID_M_ITEMS IMI inner join ID_M_SUB_CATEGORY IMSC
+        on  IMI.M_SUB_CATEGORY_CODE =  IMSC.M_SUB_CATEGORY_CODE ) inner join BRAND B on B.BRAND_CODE=IMI.BRAND_CODE) 
+        inner join ID_CATEGORIES C on C.CATEGORY_CODE=IMI.CATEGORY_CODE) 
+        inner join ID_M_SUB_SUB_CATEGORY MSSC on MSSC.M_SUB_SUB_CATEGORY_CODE=IMI.M_SUB_SUB_CATEGORY_CODE) 
+        left outer join ENERGY_GRADE EG on IMI.ENERGY_GRADE_CODE=EG.ENERGY_GRADE_CODE)
+        inner join COLOR COL on COL.COLOR_CODE=IMI.COLOR_CODE
+     )
+      	where
+      	1=1
+		<include refid="itemstaffWhere"/>
+		order by ITEM_REG_DATE desc
+     
+</select>
+
+
+
+
+<!-- 수정 쿼리 -->
+<update id="updateItem" parameterType="com.daybreak.prj.DTO.ERPDTO">
+		update
+		<if test="category_code==1">
+			ID_G_ITEMS
+			set
+             CATEGORY_CODE = #{category_code}
+             ,G_SUB_CATEGORY_CODE = #{g_sub_category_code}
+             ,G_SUB_SUB_CATEGORY_CODE = #{g_sub_sub_category_code}
+             ,G_ITEM_CODE = #{paramV}
+             ,G_ITEM_NAME = #{g_item_name}
+             ,G_BUILD_DAY = #{g_build_day}
+             ,ENERGY_GRADE_CODE = #{energy_grade_code}
+             ,G_POWER_CONSUM = #{g_power_consum}
+             ,COLOR_CODE = #{color_code}
+             ,G_ITEM_SIZE_X = ${g_item_size_x}
+             ,G_ITEM_SIZE_Y = ${g_item_size_y}
+             ,G_ITEM_SIZE_Z = ${g_item_size_z}
+             ,G_DISCONTINUED = #{g_discontinued}
+         	<if test="g_pic!=null and g_pic.length()>0">
+          		,G_PIC = #{g_pic}
+          	</if>
+		</if>
+		<if test="category_code==2">
+			ID_T_ITEMS
+			set
+             CATEGORY_CODE = #{category_code}
+             ,T_SUB_CATEGORY_CODE = #{g_sub_category_code}
+             ,T_SUB_SUB_CATEGORY_CODE = #{g_sub_sub_category_code}
+             ,T_ITEM_CODE = #{paramV}
+             ,T_ITEM_NAME = #{g_item_name}
+             ,T_BUILD_DAY = #{g_build_day}
+             ,ENERGY_GRADE_CODE = #{energy_grade_code}
+             ,T_POWER_CONSUM = #{g_power_consum}
+             ,COLOR_CODE = #{color_code}
+             ,T_ITEM_SIZE_X = ${g_item_size_x}
+             ,T_ITEM_SIZE_Y = ${g_item_size_y}
+             ,T_ITEM_SIZE_Z = ${g_item_size_z}
+             ,T_DISCONTINUED = #{g_discontinued}
+         	<if test="g_pic!=null and g_pic.length()>0">
+          		,T_PIC = #{g_pic}
+          	</if>
+		</if>
+		<if test="category_code==3">
+			ID_P_ITEMS
+			set
+             CATEGORY_CODE = #{category_code}
+             ,P_SUB_CATEGORY_CODE = #{g_sub_category_code}
+             ,P_SUB_SUB_CATEGORY_CODE = #{g_sub_sub_category_code}
+             ,P_ITEM_CODE = #{paramV}
+             ,P_ITEM_NAME = #{g_item_name}
+             ,P_BUILD_DAY = #{g_build_day}
+             ,ENERGY_GRADE_CODE = #{energy_grade_code}
+             ,P_POWER_CONSUM = #{g_power_consum}
+             ,COLOR_CODE = #{color_code}
+             ,P_ITEM_SIZE_X = ${g_item_size_x}
+             ,P_ITEM_SIZE_Y = ${g_item_size_y}
+             ,P_ITEM_SIZE_Z = ${g_item_size_z}
+             ,P_DISCONTINUED = #{g_discontinued}
+         	<if test="g_pic!=null and g_pic.length()>0">
+          		,P_PIC = #{g_pic}
+          	</if>
+		</if>
+		<if test="category_code==4">
+			ID_M_ITEMS
+			set
+             CATEGORY_CODE = #{category_code}
+             ,M_SUB_CATEGORY_CODE = #{g_sub_category_code}
+             ,M_SUB_SUB_CATEGORY_CODE = #{g_sub_sub_category_code}
+             ,M_ITEM_CODE = #{paramV}
+             ,M_ITEM_NAME = #{g_item_name}
+             ,M_BUILD_DAY = #{g_build_day}
+             ,ENERGY_GRADE_CODE = #{energy_grade_code}
+             ,M_POWER_CONSUM = #{g_power_consum}
+             ,COLOR_CODE = #{color_code}
+             ,M_ITEM_SIZE_X = ${g_item_size_x}
+             ,M_ITEM_SIZE_Y = ${g_item_size_y}
+             ,M_ITEM_SIZE_Z = ${g_item_size_z}
+             ,M_DISCONTINUED = #{g_discontinued}
+         	<if test="g_pic!=null and g_pic.length()>0">
+          		,M_PIC = #{g_pic}
+          	</if>
+		</if>
+		where
+		1=1
+		<if test="category_code==1">
+		and
+		    G_ITEM_CODE = #{paramV}
+		</if>
+		<if test="category_code==2">
+		and
+		    T_ITEM_CODE = #{paramV}
+		</if>
+		<if test="category_code==3">
+		and
+		    P_ITEM_CODE = #{paramV}
+		</if>
+		<if test="category_code==4">
+		and
+		    M_ITEM_CODE = #{paramV}
+		</if>
+</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
