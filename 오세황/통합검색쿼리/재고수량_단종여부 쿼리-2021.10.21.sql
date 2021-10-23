@@ -18,8 +18,11 @@ and
 /* inday 테이블과 outday 테이블의 CNT 빼면 남은 재고수량*/
 select items.*, inday.*, outday.* from
 ID_G_ITEMS items inner join
-(select nvl(sum(G_STOCK_IN_CNT),0), G_ITEM_CODE from ID_G_INPUT_DATE where 1=1 group by G_ITEM_CODE) inday on inday.G_ITEM_CODE = items.G_ITEM_CODE inner join
+(select nvl(sum(G_STOCK_IN_CNT),0), G_ITEM_CODE from ID_G_INPUT_DATE where 1=1 and to_date('2021-10-05','YYYY-MM-DD') < G_INPUT_DATE  group by G_ITEM_CODE) inday on inday.G_ITEM_CODE = items.G_ITEM_CODE inner join
 (select nvl(sum(G_STOCK_OUT_CNT),0), G_ITEM_CODE from ID_G_OUTPUT_DATE group by G_ITEM_CODE having 1=1) outday on outday.G_ITEM_CODE = items.G_ITEM_CODE
+
+
+
 where
 items.G_DISCONTINUED = 'false'
 or
