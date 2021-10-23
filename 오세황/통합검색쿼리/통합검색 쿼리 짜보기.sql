@@ -15,8 +15,10 @@ select sortedTable.*, rownum "RNUM"  from
 select * from
 
 (
-select * from ID_G_ITEMS g1 inner join (select sum(G_STOCK_IN_CNT), G_ITEM_CODE from ID_G_INPUT_DATE group by G_ITEM_CODE) gg on gg.G_ITEM_CODE = g1.G_ITEM_CODE
- union all select * from ID_T_ITEMS union all select * from ID_P_ITEMS union all select * from ID_M_ITEMS   /* 모든 전자제품 테이블 붙이기 */
+select * from ID_G_ITEMS union all select * from ID_T_ITEMS union all select * from ID_P_ITEMS union all select * from ID_M_ITEMS   /* 모든 전자제품 테이블 붙이기 */
+) g1 inner join
+(
+select G_INPUT_DATE, G_ITEM_CODE from (select * from ID_G_INPUT_DATE union all select * from ID_T_INPUT_DATE union all select * from ID_P_INPUT_DATE union all select * from ID_M_INPUT_DATE ) group by G_ITEM_CODE
 )
 
 order by G_ITEM_REG_DATE  /* 여기서 정렬을 먼저.*/
@@ -87,3 +89,11 @@ select * from ID_G_ITEMS union all select * from ID_T_ITEMS union all select * f
 
  where
   items.RNUM >= 1     /* <![CDATA[items.RNUM >= ${(selectPageNo*rowCntPerPage)-rowCntPerPage+1}]]> */
+
+
+
+
+
+
+
+  SELECT count(*) "TOTCNT", TO_CHAR(G_INPUT_DATE,'yyyy') "YEAR" FROM id_g_input_date group by TO_CHAR(G_INPUT_DATE,'yyyy')
