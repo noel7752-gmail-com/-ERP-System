@@ -1,0 +1,180 @@
+     <if test="category_code==1">
+     insert into ID_g_items(  			
+          g_item_no
+          ,category_code
+          ,g_sub_category_code
+          ,g_sub_sub_category_code
+          ,brand_code
+          ,g_item_code
+          ,g_item_name
+          ,g_build_day 
+          <!-- 만약에 ERPDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <!-- <참고> pic 속성변수에는 업로드된 파일의 새이름이 저장되어 있다. -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          ,g_pic 
+          </if>
+          ,energy_grade_code
+          ,g_power_consum 
+          ,color_code
+          ,g_item_size_x
+          ,g_item_size_y
+          ,g_item_size_z
+          ,g_discontinued 		
+     ) values (
+     		(select nvl(max(g_item_no),0)+1 from ID_g_items)
+          ,#{category_code} 
+          ,#{g_sub_category_code} 
+          ,#{g_sub_sub_category_code} 
+          ,#{brand_code} 
+          ,#{g_item_code} 
+          ,#{g_item_name} 
+          ,#{g_build_day} 
+          <!-- 만약에 BoardDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          <!-- pic 속성변수에 데이터 꺼내서 '를 붙여서 표현하기 -->
+          ,#{g_pic }
+          </if>
+          ,#{energy_grade_code} 
+          ,#{g_power_consum} 
+          ,#{color_code} 
+          ,#{g_item_size_x} 
+          ,#{g_item_size_y} 
+          ,#{g_item_size_z}
+          ,#{g_discontinued} 
+     )
+     </if> 
+     <if test="category_code==2">
+          insert into ID_t_items(  			
+          t_item_no
+          ,category_code
+          ,t_sub_category_code
+          ,t_sub_sub_category_code
+          ,brand_code
+          ,t_item_code
+          ,t_item_name
+          ,t_build_day 
+          <!-- 만약에 ERPDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <!-- <참고> pic 속성변수에는 업로드된 파일의 새이름이 저장되어 있다. -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          ,t_pic 
+          </if>
+          ,energy_grade_code
+          ,t_power_consum 
+          ,color_code
+          ,t_item_size_x
+          ,t_item_size_y
+          ,t_item_size_z
+          ,t_discontinued 		
+     ) values (
+     		(select nvl(max(t_item_no),0)+1 from ID_t_items)
+          ,#{category_code} 
+          ,1                        <!-- TV 중분류는 1 고정 -->
+          ,#{g_sub_category_code}   <!-- TV는 본래 sub였던 정보를 subsub에 일단 넣기로 했습니다 -->
+          ,#{brand_code} 
+          ,#{g_item_code} 
+          ,#{g_item_name} 
+          ,#{g_build_day} 
+          <!-- 만약에 BoardDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          <!-- pic 속성변수에 데이터 꺼내서 '를 붙여서 표현하기 -->
+          ,#{g_pic }
+          </if>
+          ,#{energy_grade_code} 
+          ,#{g_power_consum} 
+          ,#{color_code} 
+          ,#{g_item_size_x} 
+          ,#{g_item_size_y} 
+          ,#{g_item_size_z}
+          ,#{g_discontinued} 
+     )
+     </if>
+     <if test="category_code==3">
+          insert into ID_p_items(  			
+          p_item_no
+          ,category_code
+          ,p_sub_category_code
+          ,p_sub_sub_category_code
+          ,brand_code
+          ,p_item_code
+          ,p_item_name
+          ,p_build_day 
+          <!-- 만약에 ERPDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <!-- <참고> pic 속성변수에는 업로드된 파일의 새이름이 저장되어 있다. -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          ,p_pic 
+          </if>
+          ,energy_grade_code
+          ,p_power_consum 
+          ,color_code
+          ,p_item_size_x
+          ,p_item_size_y
+          ,p_item_size_z
+          ,p_discontinued 		
+     ) values (
+     		(select nvl(max(p_item_no),0)+1 from ID_p_items)
+          ,#{category_code} 
+          ,#{g_sub_category_code} 
+          ,#{g_sub_sub_category_code} 
+          ,#{brand_code} 
+          ,#{g_item_code} 
+          ,#{g_item_name} 
+          ,#{g_build_day} 
+          <!-- 만약에 BoardDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          <!-- pic 속성변수에 데이터 꺼내서 '를 붙여서 표현하기 -->
+          ,#{g_pic }
+          </if>
+          ,#{energy_grade_code} 
+          ,#{g_power_consum} 
+          ,#{color_code} 
+          ,#{g_item_size_x} 
+          ,#{g_item_size_y} 
+          ,#{g_item_size_z}
+          ,#{g_discontinued} 
+     )
+     </if>
+     <if test="category_code==4">
+          insert into ID_m_items(  			
+          m_item_no
+          ,category_code
+          ,m_sub_category_code
+          ,m_sub_sub_category_code
+          ,brand_code
+          ,m_item_code
+          ,m_item_name
+          ,m_build_day 
+          <!-- 만약에 ERPDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <!-- <참고> pic 속성변수에는 업로드된 파일의 새이름이 저장되어 있다. -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          ,m_pic 
+          </if>
+          ,energy_grade_code
+          ,m_power_consum 
+          ,color_code
+          ,m_item_size_x
+          ,m_item_size_y
+          ,m_item_size_z
+          ,m_discontinued 		
+     ) values (
+     		(select nvl(max(m_item_no),0)+1 from ID_m_items)
+          ,#{category_code} 
+          ,#{g_sub_category_code} 
+          ,1                        <!-- 모바일 소분류는 1 고정 -->
+          ,#{brand_code} 
+          ,#{g_item_code} 
+          ,#{g_item_name} 
+          ,#{g_build_day} 
+          <!-- 만약에 BoardDTO 객체안의 pic 속성변수에 데이터가 있으면 -->
+          <if test="g_pic!=null and g_pic.length()>0">
+          <!-- pic 속성변수에 데이터 꺼내서 '를 붙여서 표현하기 -->
+          ,#{g_pic }
+          </if>
+          ,#{energy_grade_code} 
+          ,#{g_power_consum} 
+          ,#{color_code} 
+          ,#{g_item_size_x} 
+          ,#{g_item_size_y} 
+          ,#{g_item_size_z}
+          ,#{g_discontinued} 
+     )
+     </if>
