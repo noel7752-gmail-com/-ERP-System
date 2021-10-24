@@ -1,0 +1,6 @@
+--●employee_mgr_emp_no_fk라는 이름의 FK 제약조건 끄기.제약 조건 (임시)무력화.
+ alter table employee disable constraint employee_mgr_emp_no_fk;
+
+
+--● employee_mgr_emp_no_fk 라는 이름의 FK 제약조건 키기. 즉 제약 조건 임시 활성화.
+-- alter table employee enable constraint employee_mgr_emp_no_fk;
