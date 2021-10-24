@@ -1,0 +1,24 @@
+총 5개의 페이지
+ERPController.java
+ERPDAO.java
+ERPDAOImpl.java
+mapper_erp.xml
+allSearch.jsp 에 복사 붙혀넣어야하는 부분이 있습니다.
+
+ERPController.java
+ERPDAO.java
+ERPDAOImpl.java
+mapper_erp.xml
+위에 4개의 페이지에서는 
+//===여기서부터~~~~~
+이 표시가 되있는 부분부터 마지막 표시부분까지 복사후 넣으시면 됩니다.
+
+
+
+주의
+allSearch.jsp 페이지는 
+총 복사붙혀넣어야 할 부분이 4부분이 있어
+4번까지 번호를 매겨놨습니다.
+
+끝까지 확인하시기바랍니다.
+
