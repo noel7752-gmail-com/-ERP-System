@@ -8,37 +8,19 @@ select items.* from
 
 
 /*페이징 처리를 위해 rwonum 을 바깥 쿼리로 빼주고, 검색 조건을 넣는 쿼리입니다.(items)*/
-
+(
 /* 여기서 부터 드래그해서 */
 select
-sortedTable.G_ITEM_NO
-,sortedTable.G_ITEM_REG_DATE
-,sortedTable.CATEGORY_CODE
-,sortedTable.G_SUB_CATEGORY_CODE
-,sortedTable.G_SUB_SUB_CATEGORY_CODE
-,sortedTable.BRAND_CODE
-,sortedTable.G_ITEM_CODE
-,sortedTable.G_ITEM_NAME
-,sortedTable.G_BUILD_DAY
-,sortedTable.ENERGY_GRADE_CODE
-,sortedTable.G_POWER_CONSUM
-,sortedTable.COLOR_CODE
-,sortedTable.G_ITEM_SIZE_X
-,sortedTable.G_ITEM_SIZE_Y
-,sortedTable.G_ITEM_SIZE_Z
-,sortedTable.G_DISCONTINUED
-,sortedTable.G_PIC
-,nvl(sortedTable.TOTINPUTCNT,0) "TOTINPUTCNT"
-,nvl(sortedTable.TOTOUTPUTCNT,0) "TOTOUTPUTCNT"
-,(nvl(sortedTable.TOTINPUTCNT,0)-nvl(sortedTable.TOTOUTPUTCNT,0)) "NOW_STOCK"
-,rownum "RNUM"
+sortedTable.*, rownum "RNUM"
 from
 
 
 
 /*페이징 처리를 위해 rownum을 쓰기전에 미리 정렬 해놓는 쿼리 입니다.*/
 (
-select * from
+select
+*
+from
 
 
 
@@ -60,7 +42,7 @@ select * from ID_G_INPUT_DATE union all select * from ID_T_INPUT_DATE union all 
 )
 /* 여기 where 절에 입고일 검색 조건 들어갑니다. */
 where
-1=1
+1=1 and
 /* and (
  첫 번째 입고일만 있을때.
 TO_NUMBER(TO_CHAR(G_INPUT_DATE,'yyyymm')) > TO_NUMBER('${first_input_date_year}${first_input_date_month}')
@@ -104,7 +86,82 @@ TO_NUMBER(TO_CHAR(G_OUTPUT_DATE,'yyyymm')) < TO_NUMBER('${second_output_date_yea
 group by G_ITEM_CODE
 )AOD
 on AIT.G_ITEM_CODE = AOD.G_ITEM_CODE
+
+left outer join
 /*모든 전자제품 출고 테이블 붙이기. 끝*/
+/* 모든 서브 카테고리, 서브서브 카테고리 테이블 합치기. */
+(
+ select
+ CATEGORY_CODE "CC"
+ ,SCC
+ ,SSCC
+ ,CATEGORY_NAME
+ ,G_SUB_CATEGORY_NAME
+ ,G_SUB_SUB_CATEGORY_NAME
+  from
+ (
+select
+*
+from ID_CATEGORIES c
+inner join
+(select CATEGORY_CODE "CC", G_SUB_CATEGORY_CODE, G_SUB_CATEGORY_NAME from ID_G_SUB_CATEGORY) c1
+on c.CATEGORY_CODE = c1.CC
+inner join
+(select G_SUB_CATEGORY_CODE "SCC", G_SUB_SUB_CATEGORY_NAME, G_SUB_SUB_CATEGORY_CODE "SSCC" from ID_G_SUB_SUB_CATEGORY) c2
+on c1.G_SUB_CATEGORY_CODE = c2.SCC union all
+select
+*
+from ID_CATEGORIES c
+inner join
+(select CATEGORY_CODE "CC", T_SUB_CATEGORY_CODE, T_SUB_CATEGORY_NAME from ID_T_SUB_CATEGORY) c1
+on c.CATEGORY_CODE = c1.CC
+inner join
+(select T_SUB_CATEGORY_CODE "SCC", T_SUB_SUB_CATEGORY_NAME, T_SUB_SUB_CATEGORY_CODE "SSCC" from ID_T_SUB_SUB_CATEGORY) c2
+on c1.T_SUB_CATEGORY_CODE = c2.SCC union all
+select
+*
+from ID_CATEGORIES c
+inner join
+(select CATEGORY_CODE "CC", P_SUB_CATEGORY_CODE, P_SUB_CATEGORY_NAME from ID_P_SUB_CATEGORY) c1
+on c.CATEGORY_CODE = c1.CC
+inner join
+(select P_SUB_CATEGORY_CODE "SCC", P_SUB_SUB_CATEGORY_NAME, P_SUB_SUB_CATEGORY_CODE "SSCC" from ID_P_SUB_SUB_CATEGORY) c2
+on c1.P_SUB_CATEGORY_CODE = c2.SCC union all
+select
+*
+from ID_CATEGORIES c
+inner join
+(select CATEGORY_CODE "CC", M_SUB_CATEGORY_CODE, M_SUB_CATEGORY_NAME from ID_M_SUB_CATEGORY) c1
+on c.CATEGORY_CODE = c1.CC
+inner join
+(select M_SUB_CATEGORY_CODE "SCC", M_SUB_SUB_CATEGORY_NAME, M_SUB_SUB_CATEGORY_CODE "SSCC" from ID_M_SUB_SUB_CATEGORY) c2
+on c1.M_SUB_CATEGORY_CODE = c2.SCC
+)
+) cable
+on cable.CC = AIT.CATEGORY_CODE and cable.SCC = AIT.G_SUB_CATEGORY_CODE and cable.SSCC = AIT.G_SUB_SUB_CATEGORY_CODE
+
+/* 모든 서브 카테고리, 서브서브 카테고리 테이블 합치기. 끝 */
+
+left outer join
+
+/* 브랜드 테이블 합치기*/
+(select BRAND_CODE "BC", BRAND_NAME from brand) brble
+on brble.BC = AIT.BRAND_CODE
+/* 브랜드 테이블 합치기 끝*/
+
+left outer join
+
+/* 컬러 테이블 합치기 */
+(select COLOR_CODE "CC", COLOR_NAME from COLOR) coble
+on coble.CC = AIT.COLOR_CODE
+/* 컬러 테이블 합치기  끝*/
+
+left outer join
+
+/* 에너지 등급 테이블 합치기. */
+(select ENERGY_GRADE_CODE "EGC", ENERGY_GRADE_NAME from ENERGY_GRADE) enble
+on enble.EGC = AIT.ENERGY_GRADE_CODE
+/* 에너지 등급 테이블 합치기. 끝 */
 
 order by G_ITEM_REG_DATE  /* 여기서 정렬 먼저 해야합니다.*/
 
