@@ -1,28 +1,28 @@
-
+ï»¿
 --==============================================================
--- °ø¿ë Å×ÀÌºí.
+-- ê³µìš© í…Œì´ë¸”.
 
-/*»ö»ó Å×ÀÌºí*/
+/*ìƒ‰ìƒ í…Œì´ë¸”*/
 create table color(
 color_code varchar2(20),
 color_name varchar2(200) not null unique,
 primary key(color_code)
 );
-/*¿¡³ÊÁö¼Òºñµî±Ş Å×ÀÌºí*/
+/*ì—ë„ˆì§€ì†Œë¹„ë“±ê¸‰ í…Œì´ë¸”*/
 create table energy_grade(
 energy_grade_code varchar2(20),
 energy_grade_name varchar2(200) not null unique,
 primary key(energy_grade_code)
 );
-/*ºê·£µå Å×ÀÌºí*/
+/*ë¸Œëœë“œ í…Œì´ë¸”*/
 create table brand(
 brand_code varchar2(20),
 brand_name varchar2(200) not null unique,
 primary key(brand_code)
 );
 
--- ´ëºĞ·ù
-/* °¡Àü/TV/¸ğ¹ÙÀÏ/PC */
+-- ëŒ€ë¶„ë¥˜
+/* ê°€ì „/TV/ëª¨ë°”ì¼/PC */
 create table ID_categories(
     category_code varchar2(20),
     category_name varchar2(200) not null,
@@ -32,10 +32,92 @@ create table ID_categories(
 
 
 
+--=============================================================
+--ì—…ë°ì´íŠ¸ pk fk ê±¸ë ¤ìˆëŠ”ê²ƒ í•œêº¼ë²ˆì— ì—…ë°ì´íŠ¸ ë“¤ì–´ê°ˆìˆ˜ ìˆëŠ” íŠ¸ë¦¬ê±°. ì•„ë˜ìª½ì— ì„¤ëª…ë„ ìˆìŠµë‹ˆë‹¤.
+
+
+--ì—…ë°ì´íŠ¸ íŠ¸ë¦¬ê±° ë§Œë“¤ê³  í•˜ëŠ” í…ŒìŠ¤íŠ¸ ì½”ë“œì…ë‹ˆë‹¤. ë°‘ì— íŠ¸ë¦¬ê±° ë§Œë“¤ê³  ì‚¬ìš©í•˜ì„¸ìš”!
+update ID_G_ITEMS set G_ITEM_CODE = 'oooo' where G_ITEM_CODE = 'CRP-R069FP'
 
 
 
-/*°¡Àü ÁßºĞ·ù Å×ÀÌºí*/
+/* ê° itmes í…Œì´ë¸”ì˜ íŠ¸ë¦¬ê±°ë¥¼ ë§Œë“­ë‹ˆë‹¤. ê·¸ë¦¬ê³  ë‚˜ì„œ ê° itmes í…Œì´ë¸” ì— ì œí’ˆì½”ë“œë¥¼ ì—…ë°ì´íŠ¸ í•©ë‹ˆë‹¤. ë. */
+CREATE or replace trigger G_ITEM_CODE_UPDATE
+after update of G_ITEM_CODE on ID_G_ITEMS for each row
+begin
+    update ID_G_INPUT_DATE
+    set G_ITEM_CODE = :new.G_ITEM_CODE
+    where G_ITEM_CODE = :old.G_ITEM_CODE;
+    update ID_G_OUTPUT_DATE
+    set G_ITEM_CODE = :new.G_ITEM_CODE
+    where G_ITEM_CODE = :old.G_ITEM_CODE;
+end;
+
+
+CREATE or replace trigger T_ITEM_CODE_UPDATE
+after update of T_ITEM_CODE on ID_T_ITEMS for each row
+begin
+    update ID_T_INPUT_DATE
+    set T_ITEM_CODE = :new.T_ITEM_CODE
+    where T_ITEM_CODE = :old.T_ITEM_CODE;
+    update ID_T_OUTPUT_DATE
+    set T_ITEM_CODE = :new.T_ITEM_CODE
+    where T_ITEM_CODE = :old.T_ITEM_CODE;
+end;
+
+
+CREATE or replace trigger P_ITEM_CODE_UPDATE
+after update of P_ITEM_CODE on ID_P_ITEMS for each row
+begin
+    update ID_P_INPUT_DATE
+    set P_ITEM_CODE = :new.P_ITEM_CODE
+    where P_ITEM_CODE = :old.P_ITEM_CODE;
+    update ID_P_OUTPUT_DATE
+    set P_ITEM_CODE = :new.P_ITEM_CODE
+    where P_ITEM_CODE = :old.P_ITEM_CODE;
+end;
+
+
+CREATE or replace trigger M_ITEM_CODE_UPDATE
+after update of M_ITEM_CODE on ID_M_ITEMS for each row
+begin
+    update ID_M_INPUT_DATE
+    set M_ITEM_CODE = :new.M_ITEM_CODE
+    where M_ITEM_CODE = :old.M_ITEM_CODE;
+    update ID_M_OUTPUT_DATE
+    set M_ITEM_CODE = :new.M_ITEM_CODE
+    where M_ITEM_CODE = :old.M_ITEM_CODE;
+end;
+
+
+/* íŠ¸ë¦¬ê±° ì„¤ëª…
+
+    ì €ë„ ìì„¸í•œê²ƒì€ ëª¨ë¥´ê³  ë³µë¶™í•´ì™”ìŠµë‹ˆë‹¤.
+    ITEM_CODE_UPDATE ë¼ëŠ” ì´ë¦„ìœ¼ë¡œ triggerë¥¼ ìƒì„±,
+    ì´ íŠ¸ë¦¬ê±°ëŠ” ID_G_ITEMS í…Œì´ë¸”ì— G_ITEM_CODE ê°€ update ëœ í›„ ì‹¤í–‰ë©ë‹ˆë‹¤.
+    ì‹œì‘
+        ë§Œì•½ input_date í…Œì´ë¸” ì œí’ˆì½”ë“œê°€ ì˜ˆì „ê±°ë¼ë©´ ë°©ê¸ˆ ë°”ë€ ìƒˆ ê°’ì„ ë„£ì–´ì¤Œ.
+        ë§Œì•½ output_date í…Œì´ë¸” ì œí’ˆì½”ë“œê°€ ì˜ˆì „ê±°ë¼ë©´ ë°©ê¸ˆ ë°”ë€ ìƒˆ ê°’ì„ ë„£ì–´ì¤Œ.
+    ë
+ */
+
+
+--íŠ¸ë¦¬ê±° ì§€ìš°ê³  ì‹¶ì„ ë•Œ ì“°ëŠ” drop
+drop trigger ITEM_CODE_UPDATE
+
+--í•­ìƒ í•˜ëŠ” ì»¤ë°‹...!
+commit
+
+--=============================================================
+--=============================================================
+
+
+
+
+
+
+
+/*ê°€ì „ ì¤‘ë¶„ë¥˜ í…Œì´ë¸”*/
 create table ID_g_sub_category(
     category_code,
     g_sub_category_code varchar2(20),
@@ -43,7 +125,7 @@ create table ID_g_sub_category(
     PRIMARY KEY(g_sub_category_code),
     foreign key(category_code) references ID_categories(category_code)
 );
-/*°¡Àü ¼ÒºĞ·ù Å×ÀÌºí*/
+/*ê°€ì „ ì†Œë¶„ë¥˜ í…Œì´ë¸”*/
 create table ID_g_sub_sub_category(
     g_sub_sub_category_code varchar2(50),
     g_sub_category_code,
@@ -51,7 +133,7 @@ create table ID_g_sub_sub_category(
     primary key(g_sub_sub_category_code),
     foreign key(g_sub_category_code) references ID_g_sub_category(g_sub_category_code)
 );
-/*Á¦Ç° Å×ÀÌºí*/
+/*ì œí’ˆ í…Œì´ë¸”*/
 create table ID_g_items(
    g_item_no number(30) not null unique,
    g_item_reg_date date default sysdate,
@@ -78,7 +160,7 @@ create table ID_g_items(
    foreign key(color_code) references color(color_code),
    foreign key(g_sub_sub_category_code) references ID_g_sub_sub_category(g_sub_sub_category_code)
 );
-/* ÀÔ°íÀÏ ³¯Â¥ ÀúÀå Å×ÀÌºí */
+/* ì…ê³ ì¼ ë‚ ì§œ ì €ì¥ í…Œì´ë¸” */
 create table ID_g_input_date (
     g_input_date_no number(5),
     g_item_code,
@@ -87,7 +169,7 @@ create table ID_g_input_date (
     primary key(g_input_date_no),
     foreign key(g_item_code) references ID_g_items(g_item_code)
 );
-/* Ãâ°íÀÏ ³¯Â¥ ÀúÀå Å×ÀÌºí */
+/* ì¶œê³ ì¼ ë‚ ì§œ ì €ì¥ í…Œì´ë¸” */
 create table ID_g_output_date (
     g_output_date_no number(5),
     g_item_code,
@@ -115,341 +197,341 @@ select * from ID_g_items
 
 
 -- ==========================================================
--- INSERT ½ÃÀÛ.
+-- INSERT ì‹œì‘.
 
--- ´ëºĞ·ù Ä«Å×°í¸® insert -----------
-insert into ID_CATEGORIES (category_code, category_name) values(1,'°¡Àü') ;
+-- ëŒ€ë¶„ë¥˜ ì¹´í…Œê³ ë¦¬ insert -----------
+insert into ID_CATEGORIES (category_code, category_name) values(1,'ê°€ì „') ;
 insert into ID_CATEGORIES (category_code, category_name) values(2,'TV')   ;
 insert into ID_CATEGORIES (category_code, category_name) values(3,'PC')   ;
-insert into ID_CATEGORIES (category_code, category_name) values(4,'¸ğ¹ÙÀÏ');
+insert into ID_CATEGORIES (category_code, category_name) values(4,'ëª¨ë°”ì¼');
 
 select * from id_categories
 
 commit
 
--- ÁßºĞ·ù Ä«Å×°í¸® insert
-insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,1,'°èÀı°¡Àü') ;
-insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,2,'ÁÖ¹æ°¡Àü') ;
-insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,3,'»ıÈ°°¡Àü') ;
+-- ì¤‘ë¶„ë¥˜ ì¹´í…Œê³ ë¦¬ insert
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,1,'ê³„ì ˆê°€ì „') ;
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,2,'ì£¼ë°©ê°€ì „') ;
+insert into ID_G_SUB_CATEGORY (category_code, g_sub_category_code, g_sub_category_name) values(1,3,'ìƒí™œê°€ì „') ;
 
 select * from ID_G_SUB_CATEGORY
 
 commit
 
--- ¼ÒºĞ·ù Ä«Å×°í¸® insert
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,1,'¿¡¾îÄÁ') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,2,'°ø±âÃ»Á¤') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,3,'³­¹æ±â±â') ;
+-- ì†Œë¶„ë¥˜ ì¹´í…Œê³ ë¦¬ insert
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,1,'ì—ì–´ì»¨') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,2,'ê³µê¸°ì²­ì •') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(1,3,'ë‚œë°©ê¸°ê¸°') ;
 
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,4,'³ÃÀå°í') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,5,'Àü±â¹ä¼Ü') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,6,'¿¡¾îÇÁ¶óÀÌ¾î') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,4,'ëƒ‰ì¥ê³ ') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,5,'ì „ê¸°ë°¥ì†¥') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(2,6,'ì—ì–´í”„ë¼ì´ì–´') ;
 
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,7,'¼¼Å¹±â') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,8,'°ÇÁ¶±â') ;
-insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,9,'Ã»¼Ò±â') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,7,'ì„¸íƒê¸°') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,8,'ê±´ì¡°ê¸°') ;
+insert into ID_G_SUB_SUB_CATEGORY (g_sub_category_code, g_sub_sub_category_code, g_sub_sub_category_name) values(3,9,'ì²­ì†Œê¸°') ;
 
 select * from ID_G_SUB_SUB_CATEGORY
 
 commit
 
--- ¿¡³ÊÁö È¿À²µî±Ş insert
+-- ì—ë„ˆì§€ íš¨ìœ¨ë“±ê¸‰ insert
 
-insert into energy_grade (energy_grade_code, energy_grade_name) values(1,'1µî±Ş') ;
-insert into energy_grade (energy_grade_code, energy_grade_name) values(2,'2µî±Ş') ;
-insert into energy_grade (energy_grade_code, energy_grade_name) values(3,'3µî±Ş') ;
-insert into energy_grade (energy_grade_code, energy_grade_name) values(4,'4µî±Ş') ;
-insert into energy_grade (energy_grade_code, energy_grade_name) values(5,'5µî±Ş') ;
+insert into energy_grade (energy_grade_code, energy_grade_name) values(1,'1ë“±ê¸‰') ;
+insert into energy_grade (energy_grade_code, energy_grade_name) values(2,'2ë“±ê¸‰') ;
+insert into energy_grade (energy_grade_code, energy_grade_name) values(3,'3ë“±ê¸‰') ;
+insert into energy_grade (energy_grade_code, energy_grade_name) values(4,'4ë“±ê¸‰') ;
+insert into energy_grade (energy_grade_code, energy_grade_name) values(5,'5ë“±ê¸‰') ;
 
 select * from energy_grade
 
 commit
 
--- ºê·£µå insert
+-- ë¸Œëœë“œ insert
 
-insert into brand (brand_code, brand_name) values(1,'»ï¼ºÀüÀÚ');
-insert into brand (brand_code, brand_name) values(2,'LGÀüÀÚ');
-insert into brand (brand_code, brand_name) values(3,'Ä³¸®¾î');
-insert into brand (brand_code, brand_name) values(4,'À§´Ï¾ÆµõÃ¤');
-insert into brand (brand_code, brand_name) values(5,'ÆÄ¼¼ÄÚ');
-insert into brand (brand_code, brand_name) values(6,'À§´Ğ½º');
-insert into brand (brand_code, brand_name) values(7,'È«ÁøÅ×Å©');
-insert into brand (brand_code, brand_name) values(8,'À¯´Ï¸Æ½º');
-insert into brand (brand_code, brand_name) values(9,'½ÅÀÏÀüÀÚ');
-insert into brand (brand_code, brand_name) values(10,'»ş¿À¹Ì');
-insert into brand (brand_code, brand_name) values(11,'Ä³·Î½º');
-insert into brand (brand_code, brand_name) values(12,'ÇÑÀÏÀü±â');
-insert into brand (brand_code, brand_name) values(13,'·Ôµ¥ÇÏÀÌ¸¶Æ®');
-insert into brand (brand_code, brand_name) values(14,'½ºÅ¸¸®¿Â');
-insert into brand (brand_code, brand_name) values(15,'ÄíÄí');
-insert into brand (brand_code, brand_name) values(16,'ÄíÃ¾');
-insert into brand (brand_code, brand_name) values(17,'PNÇ³³â');
-insert into brand (brand_code, brand_name) values(18,'¶ô¾Ø¶ô');
+insert into brand (brand_code, brand_name) values(1,'ì‚¼ì„±ì „ì');
+insert into brand (brand_code, brand_name) values(2,'LGì „ì');
+insert into brand (brand_code, brand_name) values(3,'ìºë¦¬ì–´');
+insert into brand (brand_code, brand_name) values(4,'ìœ„ë‹ˆì•„ë”¤ì±„');
+insert into brand (brand_code, brand_name) values(5,'íŒŒì„¸ì½”');
+insert into brand (brand_code, brand_name) values(6,'ìœ„ë‹‰ìŠ¤');
+insert into brand (brand_code, brand_name) values(7,'í™ì§„í…Œí¬');
+insert into brand (brand_code, brand_name) values(8,'ìœ ë‹ˆë§¥ìŠ¤');
+insert into brand (brand_code, brand_name) values(9,'ì‹ ì¼ì „ì');
+insert into brand (brand_code, brand_name) values(10,'ìƒ¤ì˜¤ë¯¸');
+insert into brand (brand_code, brand_name) values(11,'ìºë¡œìŠ¤');
+insert into brand (brand_code, brand_name) values(12,'í•œì¼ì „ê¸°');
+insert into brand (brand_code, brand_name) values(13,'ë¡¯ë°í•˜ì´ë§ˆíŠ¸');
+insert into brand (brand_code, brand_name) values(14,'ìŠ¤íƒ€ë¦¬ì˜¨');
+insert into brand (brand_code, brand_name) values(15,'ì¿ ì¿ ');
+insert into brand (brand_code, brand_name) values(16,'ì¿ ì²¸');
+insert into brand (brand_code, brand_name) values(17,'PNí’ë…„');
+insert into brand (brand_code, brand_name) values(18,'ë½ì•¤ë½');
 insert into brand (brand_code, brand_name) values(19,'422');
-insert into brand (brand_code, brand_name) values(20,'ÀÌ¸¶Æ®');
-insert into brand (brand_code, brand_name) values(21,'¿ÀÄí');
-insert into brand (brand_code, brand_name) values(22,'º¸Åä');
-insert into brand (brand_code, brand_name) values(23,'¿¡¾î¸ŞÀÌµå');
-insert into brand (brand_code, brand_name) values(24,'¸®ºù¼¾½º');
-insert into brand (brand_code, brand_name) values(25,'Àç¿øÀüÀÚ');
-insert into brand (brand_code, brand_name) values(26,'³ë¿Í');
-insert into brand (brand_code, brand_name) values(27,'¸®ºùÄÚ¸®¾Æ');
-insert into brand (brand_code, brand_name) values(28,'ÀÚÀÏ·º');
-insert into brand (brand_code, brand_name) values(29,'Å°Ä£¾ÆÆ®');
-insert into brand (brand_code, brand_name) values(30,'Áß»ê¹°»ê');
+insert into brand (brand_code, brand_name) values(20,'ì´ë§ˆíŠ¸');
+insert into brand (brand_code, brand_name) values(21,'ì˜¤ì¿ ');
+insert into brand (brand_code, brand_name) values(22,'ë³´í† ');
+insert into brand (brand_code, brand_name) values(23,'ì—ì–´ë©”ì´ë“œ');
+insert into brand (brand_code, brand_name) values(24,'ë¦¬ë¹™ì„¼ìŠ¤');
+insert into brand (brand_code, brand_name) values(25,'ì¬ì›ì „ì');
+insert into brand (brand_code, brand_name) values(26,'ë…¸ì™€');
+insert into brand (brand_code, brand_name) values(27,'ë¦¬ë¹™ì½”ë¦¬ì•„');
+insert into brand (brand_code, brand_name) values(28,'ìì¼ë ‰');
+insert into brand (brand_code, brand_name) values(29,'í‚¤ì¹œì•„íŠ¸');
+insert into brand (brand_code, brand_name) values(30,'ì¤‘ì‚°ë¬¼ì‚°');
 
-insert into brand (brand_code, brand_name) values(31,'À§´Ï¾ÆÀüÀÚ');
-insert into brand (brand_code, brand_name) values(32,'¹Ìµğ¾î');
-insert into brand (brand_code, brand_name) values(33,'´ÙÀÌ½¼');
+insert into brand (brand_code, brand_name) values(31,'ìœ„ë‹ˆì•„ì „ì');
+insert into brand (brand_code, brand_name) values(32,'ë¯¸ë””ì–´');
+insert into brand (brand_code, brand_name) values(33,'ë‹¤ì´ìŠ¨');
 
-insert into brand (brand_code, brand_name) values(34,'¾ÖÇÃ');
-insert into brand (brand_code, brand_name) values(35,'·¹³ë¹ö');
-insert into brand (brand_code, brand_name) values(36,'ÅÂÅ¬¶ó½ºÆ®');
-insert into brand (brand_code, brand_name) values(37,'µğÅ¬');
+insert into brand (brand_code, brand_name) values(34,'ì• í”Œ');
+insert into brand (brand_code, brand_name) values(35,'ë ˆë…¸ë²„');
+insert into brand (brand_code, brand_name) values(36,'íƒœí´ë¼ìŠ¤íŠ¸');
+insert into brand (brand_code, brand_name) values(37,'ë””í´');
 insert into brand (brand_code, brand_name) values(38,'CHUWI');
-insert into brand (brand_code, brand_name) values(39,'¿¥ÇÇÁö¿À');
-insert into brand (brand_code, brand_name) values(40,'¾Æ¸¶Á¸');
+insert into brand (brand_code, brand_name) values(39,'ì— í”¼ì§€ì˜¤');
+insert into brand (brand_code, brand_name) values(40,'ì•„ë§ˆì¡´');
 insert into brand (brand_code, brand_name) values(41,'HP');
-insert into brand (brand_code, brand_name) values(42,'ÇÑ¼º');
+insert into brand (brand_code, brand_name) values(42,'í•œì„±');
 insert into brand (brand_code, brand_name) values(43,'DELL');
 insert into brand (brand_code, brand_name) values(44,'ASUS');
 insert into brand (brand_code, brand_name) values(45,'MSI');
-insert into brand (brand_code, brand_name) values(46,'ÇÑ¼ºÄÄÇ»ÅÍ');
+insert into brand (brand_code, brand_name) values(46,'í•œì„±ì»´í“¨í„°');
 insert into brand (brand_code, brand_name) values(47,'ACER');
-insert into brand (brand_code, brand_name) values(48,'¿Í»çºñ¸Á°í');
-insert into brand (brand_code, brand_name) values(49,'ÀÌ³ë½º');
+insert into brand (brand_code, brand_name) values(48,'ì™€ì‚¬ë¹„ë§ê³ ');
+insert into brand (brand_code, brand_name) values(49,'ì´ë…¸ìŠ¤');
 insert into brand (brand_code, brand_name) values(50,'TNM');
-insert into brand (brand_code, brand_name) values(51,'½ÃÆ¼ºê');
+insert into brand (brand_code, brand_name) values(51,'ì‹œí‹°ë¸Œ');
 
 
 select * from brand
 
 commit
 
---°èÀı°¡Àü - ¿¡¾îÄÁ
-»ï¼ºÀüÀÚ
-LGÀüÀÚ
-Ä³¸®¾î
-À§´Ï¾ÆµõÃ¤
-ÆÄ¼¼ÄÚ
+--ê³„ì ˆê°€ì „ - ì—ì–´ì»¨
+ì‚¼ì„±ì „ì
+LGì „ì
+ìºë¦¬ì–´
+ìœ„ë‹ˆì•„ë”¤ì±„
+íŒŒì„¸ì½”
 
--- °èÀı°¡Àü - °ø±âÃ»Á¤
-LGÀüÀÚ
-»ï¼ºÀüÀÚ
-À§´Ğ½º
-À§´Ï¾ÆµõÃ¤
+-- ê³„ì ˆê°€ì „ - ê³µê¸°ì²­ì •
+LGì „ì
+ì‚¼ì„±ì „ì
+ìœ„ë‹‰ìŠ¤
+ìœ„ë‹ˆì•„ë”¤ì±„
 
---°èÀı°¡Àü - ³­¹æ±â±â
-È«ÁøÅ×Å©
-À¯´Ï¸Æ½º
-½ÅÀÏÀüÀÚ
-»ş¿À¹Ì
-Ä³·Î½º
-ÇÑÀÏÀü±â
+--ê³„ì ˆê°€ì „ - ë‚œë°©ê¸°ê¸°
+í™ì§„í…Œí¬
+ìœ ë‹ˆë§¥ìŠ¤
+ì‹ ì¼ì „ì
+ìƒ¤ì˜¤ë¯¸
+ìºë¡œìŠ¤
+í•œì¼ì „ê¸°
 
---ÁÖ¹æ°¡Àü - ³ÃÀå°í
-LGÀüÀÚ
-»ï¼ºÀüÀÚ
-Ä³¸®¾î
-À§´Ï¾ÆµõÃ¤
-·Ôµ¥ÇÏÀÌ¸¶Æ®
-½ºÅ¸¸®¿Â
+--ì£¼ë°©ê°€ì „ - ëƒ‰ì¥ê³ 
+LGì „ì
+ì‚¼ì„±ì „ì
+ìºë¦¬ì–´
+ìœ„ë‹ˆì•„ë”¤ì±„
+ë¡¯ë°í•˜ì´ë§ˆíŠ¸
+ìŠ¤íƒ€ë¦¬ì˜¨
 
---ÁÖ¹æ°¡Àü - Àü±â¹ä¼Ü
-ÄíÄí
-ÄíÃ¾
-PNÇ³³â
-À§´Ï¾ÆµõÃ¤
+--ì£¼ë°©ê°€ì „ - ì „ê¸°ë°¥ì†¥
+ì¿ ì¿ 
+ì¿ ì²¸
+PNí’ë…„
+ìœ„ë‹ˆì•„ë”¤ì±„
 
---ÁÖ¹æ°¡Àü - ¿¡¾îÇÁ¶óÀÌ¾î
-¶ô¾Ø¶ô
+--ì£¼ë°©ê°€ì „ - ì—ì–´í”„ë¼ì´ì–´
+ë½ì•¤ë½
 422
-ÀÌ¸¶Æ®
-ÄíÄí
-¿ÀÄí
-º¸Åä
-¿¡¾î¸ŞÀÌµå
-¸®ºù¼¾½º
-Àç¿øÀüÀÚ
-³ë¿Í
-¸®ºùÄÚ¸®¾Æ
-ÀÚÀÏ·º
-Å°Ä£¾ÆÆ®
-Áß»ê¹°»ê
+ì´ë§ˆíŠ¸
+ì¿ ì¿ 
+ì˜¤ì¿ 
+ë³´í† 
+ì—ì–´ë©”ì´ë“œ
+ë¦¬ë¹™ì„¼ìŠ¤
+ì¬ì›ì „ì
+ë…¸ì™€
+ë¦¬ë¹™ì½”ë¦¬ì•„
+ìì¼ë ‰
+í‚¤ì¹œì•„íŠ¸
+ì¤‘ì‚°ë¬¼ì‚°
 
--- »ıÈ°°¡Àü - ¼¼Å¹±â
-¹Ìµğ¾î
--- »ıÈ°°¡Àü - °ÇÁ¶±â
-À§´Ï¾ÆÀüÀÚ
--- »ıÈ°°¡Àü - Ã»¼Ò±â
-´ÙÀÌ½¼
+-- ìƒí™œê°€ì „ - ì„¸íƒê¸°
+ë¯¸ë””ì–´
+-- ìƒí™œê°€ì „ - ê±´ì¡°ê¸°
+ìœ„ë‹ˆì•„ì „ì
+-- ìƒí™œê°€ì „ - ì²­ì†Œê¸°
+ë‹¤ì´ìŠ¨
 
---tv pc ¸ğ¹ÙÀÏ Ãß°¡ ºê·£µå
-¾ÖÇÃ
-·¹³ë¹ö
-ÅÂÅ¬¶ó½ºÆ®
-µğÅ¬
+--tv pc ëª¨ë°”ì¼ ì¶”ê°€ ë¸Œëœë“œ
+ì• í”Œ
+ë ˆë…¸ë²„
+íƒœí´ë¼ìŠ¤íŠ¸
+ë””í´
 CHUWI
-¿¥ÇÇÁö¿À
-¾Æ¸¶Á¸
+ì— í”¼ì§€ì˜¤
+ì•„ë§ˆì¡´
 HP
-ÇÑ¼º
+í•œì„±
 DELL
 ASUS
 MSI
-ÇÑ¼ºÄÄÇ»ÅÍ
+í•œì„±ì»´í“¨í„°
 ACER
-¿Í»çºñ¸Á°í
-ÀÌ³ë½º
+ì™€ì‚¬ë¹„ë§ê³ 
+ì´ë…¸ìŠ¤
 TNM
-½ÃÆ¼ºê
+ì‹œí‹°ë¸Œ
 
 
 
 
 
 
--- ÄÃ·¯ insert
+-- ì»¬ëŸ¬ insert
 
-insert into color (color_code, color_name) values(1,'¿¡¾î¸®È­ÀÌÆ®');
+insert into color (color_code, color_name) values(1,'ì—ì–´ë¦¬í™”ì´íŠ¸');
 insert into color (color_code, color_name) values(2,'new NFD Gray');
-insert into color (color_code, color_name) values(3,'È­ÀÌÆ®');
-insert into color (color_code, color_name) values(4,'¸ŞÅ»È­ÀÌÆ®');
-insert into color (color_code, color_name) values(5,'ºê¶ó¿î Äµ¹ö½º¿ìµå');
+insert into color (color_code, color_name) values(3,'í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(4,'ë©”íƒˆí™”ì´íŠ¸');
+insert into color (color_code, color_name) values(5,'ë¸Œë¼ìš´ ìº”ë²„ìŠ¤ìš°ë“œ');
 insert into color (color_code, color_name) values(6,'Serene Green');
-insert into color (color_code, color_name) values(7,'¿şµù½º³ë¿ì');
-insert into color (color_code, color_name) values(8,'·Î¸ÇÆ½·ÎÁî');
-insert into color (color_code, color_name) values(9,'Ä«¹Öº£ÀÌÁö');
-insert into color (color_code, color_name) values(10,'Ä«¹Ö±×¸°');
-insert into color (color_code, color_name) values(11,'Å¬¸°È­ÀÌÆ®');
-insert into color (color_code, color_name) values(12,'Å©¸®¹Ì½º³ë¿ì');
-insert into color (color_code, color_name) values(13,'¾ÆÀÌ¾ğ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(14,'¹ĞÅ©Æ¼¶ó¶¼');
-insert into color (color_code, color_name) values(15,'´º¸ŞÅ»»şÀÎ');
-insert into color (color_code, color_name) values(16,'³×ÀÌÃ³±×¸°');
-insert into color (color_code, color_name) values(17,'½Ç¹ö');
-insert into color (color_code, color_name) values(18,'±×·¹ÀÌ');
-insert into color (color_code, color_name) values(19,'º£ÀÌÁö');
-insert into color (color_code, color_name) values(20,'¹ÎÆ®±×¸°');
-insert into color (color_code, color_name) values(21,'¸ôÅ¸±×¸°');
-insert into color (color_code, color_name) values(22,'¼ÒÇÁÆ® º£ÀÌÁö');
-insert into color (color_code, color_name) values(23,'Ç»¾î È­ÀÌÆ®');
-insert into color (color_code, color_name) values(24,'·¹µå');
-insert into color (color_code, color_name) values(25,'¹ÙÀÌ¸ŞÅ»');
-insert into color (color_code, color_name) values(26,'È­ÀÌÆ®ºí·¢');
+insert into color (color_code, color_name) values(7,'ì›¨ë”©ìŠ¤ë…¸ìš°');
+insert into color (color_code, color_name) values(8,'ë¡œë§¨í‹±ë¡œì¦ˆ');
+insert into color (color_code, color_name) values(9,'ì¹´ë°ë² ì´ì§€');
+insert into color (color_code, color_name) values(10,'ì¹´ë°ê·¸ë¦°');
+insert into color (color_code, color_name) values(11,'í´ë¦°í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(12,'í¬ë¦¬ë¯¸ìŠ¤ë…¸ìš°');
+insert into color (color_code, color_name) values(13,'ì•„ì´ì–¸ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(14,'ë°€í¬í‹°ë¼ë–¼');
+insert into color (color_code, color_name) values(15,'ë‰´ë©”íƒˆìƒ¤ì¸');
+insert into color (color_code, color_name) values(16,'ë„¤ì´ì²˜ê·¸ë¦°');
+insert into color (color_code, color_name) values(17,'ì‹¤ë²„');
+insert into color (color_code, color_name) values(18,'ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(19,'ë² ì´ì§€');
+insert into color (color_code, color_name) values(20,'ë¯¼íŠ¸ê·¸ë¦°');
+insert into color (color_code, color_name) values(21,'ëª°íƒ€ê·¸ë¦°');
+insert into color (color_code, color_name) values(22,'ì†Œí”„íŠ¸ ë² ì´ì§€');
+insert into color (color_code, color_name) values(23,'í“¨ì–´ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(24,'ë ˆë“œ');
+insert into color (color_code, color_name) values(25,'ë°”ì´ë©”íƒˆ');
+insert into color (color_code, color_name) values(26,'í™”ì´íŠ¸ë¸”ë™');
 
-insert into color (color_code, color_name) values(27,'»şÀÌ´Ï´ÙÀÌ¾Æºí·¢');
-insert into color (color_code, color_name) values(28,'±Û·¥µöÂ÷Äİ');
-insert into color (color_code, color_name) values(29,'Â÷Äİ´ÙÅ©±×·¹ÀÌ');
-insert into color (color_code, color_name) values(30,'ÇìÀÌÁî½Ç¹ö');
-insert into color (color_code, color_name) values(31,'¸ŞÅ»');
-insert into color (color_code, color_name) values(32,'ÇÇÄ¡°ñµå');
-insert into color (color_code, color_name) values(33,'ºí·¢');
-insert into color (color_code, color_name) values(34,'½º¸ğÅ°±×·¹ÀÌ');
-insert into color (color_code, color_name) values(35,'¿Ã¸®ºê±×¸°');
-insert into color (color_code, color_name) values(36,'¸ğ´ø½ºÅ×ÀÎ¸®½º');
-insert into color (color_code, color_name) values(37,'ºí·¢ÄÉºñ¾î');
-insert into color (color_code, color_name) values(38,'ÀÌ³ì½º');
-insert into color (color_code, color_name) values(39,'¶óº¥´õ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(40,'¹ÌµåÇÁ¸®½Ç¹ö');
-insert into color (color_code, color_name) values(41,'ºí·¢½ºÅ×ÀÎ¸®½º');
-insert into color (color_code, color_name) values(42,'¹Ìµåºí·¢');
-insert into color (color_code, color_name) values(43,'½ºÅæ½Ç¹ö');
-insert into color (color_code, color_name) values(44,'¹Ìµå±×·¹ÀÌ');
-insert into color (color_code, color_name) values(45,'±×¸°');
-insert into color (color_code, color_name) values(46,'ºí·ç');
-insert into color (color_code, color_name) values(47,'ÆÛÇÃ');
-insert into color (color_code, color_name) values(48,'¹ö°Çµğ');
-insert into color (color_code, color_name) values(49,'ºê¶ó¿î');
-insert into color (color_code, color_name) values(50,'¿»·Î¿ì');
+insert into color (color_code, color_name) values(27,'ìƒ¤ì´ë‹ˆë‹¤ì´ì•„ë¸”ë™');
+insert into color (color_code, color_name) values(28,'ê¸€ë¨ë”¥ì°¨ì½œ');
+insert into color (color_code, color_name) values(29,'ì°¨ì½œë‹¤í¬ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(30,'í—¤ì´ì¦ˆì‹¤ë²„');
+insert into color (color_code, color_name) values(31,'ë©”íƒˆ');
+insert into color (color_code, color_name) values(32,'í”¼ì¹˜ê³¨ë“œ');
+insert into color (color_code, color_name) values(33,'ë¸”ë™');
+insert into color (color_code, color_name) values(34,'ìŠ¤ëª¨í‚¤ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(35,'ì˜¬ë¦¬ë¸Œê·¸ë¦°');
+insert into color (color_code, color_name) values(36,'ëª¨ë˜ìŠ¤í…Œì¸ë¦¬ìŠ¤');
+insert into color (color_code, color_name) values(37,'ë¸”ë™ì¼€ë¹„ì–´');
+insert into color (color_code, color_name) values(38,'ì´ë…¹ìŠ¤');
+insert into color (color_code, color_name) values(39,'ë¼ë²¤ë”ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(40,'ë¯¸ë“œí”„ë¦¬ì‹¤ë²„');
+insert into color (color_code, color_name) values(41,'ë¸”ë™ìŠ¤í…Œì¸ë¦¬ìŠ¤');
+insert into color (color_code, color_name) values(42,'ë¯¸ë“œë¸”ë™');
+insert into color (color_code, color_name) values(43,'ìŠ¤í†¤ì‹¤ë²„');
+insert into color (color_code, color_name) values(44,'ë¯¸ë“œê·¸ë ˆì´');
+insert into color (color_code, color_name) values(45,'ê·¸ë¦°');
+insert into color (color_code, color_name) values(46,'ë¸”ë£¨');
+insert into color (color_code, color_name) values(47,'í¼í”Œ');
+insert into color (color_code, color_name) values(48,'ë²„ê±´ë””');
+insert into color (color_code, color_name) values(49,'ë¸Œë¼ìš´');
+insert into color (color_code, color_name) values(50,'ì˜ë¡œìš°');
 
-insert into color (color_code, color_name) values(51,'ÆÒÅÒ ºí·¢');
-insert into color (color_code, color_name) values(52,'ÆÒÅÒ ±×¸°');
-insert into color (color_code, color_name) values(53,'ÆÒÅÒ ½Ç¹ö');
-insert into color (color_code, color_name) values(54,'Å©¸²');
-insert into color (color_code, color_name) values(55,'¶óº¥´õ');
-insert into color (color_code, color_name) values(56,'ÆÒÅÒ ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(57,'ÆÒÅÒ ÇÎÅ©');
-insert into color (color_code, color_name) values(58,'ÆÒÅÒ ¹ÙÀÌ¿Ã·¿');
-insert into color (color_code, color_name) values(59,'ÆÒÅÒ È­ÀÌÆ®');
-insert into color (color_code, color_name) values(60,'¹Ì½ºÆ½ ºí·¢');
-insert into color (color_code, color_name) values(61,'¹Ì½ºÆ½ ºê·ĞÁî');
-insert into color (color_code, color_name) values(62,'Å¬¶ó¿ìÁî ¶óº¥´õ');
-insert into color (color_code, color_name) values(63,'Å¬¶ó¿ìµå ³×ÀÌºñ');
-insert into color (color_code, color_name) values(64,'Å¬¶ó¿ìµå ¹ÎÆ®');
-insert into color (color_code, color_name) values(65,'Å¬¶ó¿ìµå ·¹µå');
-insert into color (color_code, color_name) values(66,'Å¬¶ó¿ìµå È­ÀÌÆ®');
-insert into color (color_code, color_name) values(67,'°ñµå');
-insert into color (color_code, color_name) values(68,'ÇÎÅ©');
-insert into color (color_code, color_name) values(69,'ÆÛ½ÃÇÈ ºí·ç');
-insert into color (color_code, color_name) values(70,'½ºÆäÀÌ½º ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(71,'¾Æ½ºÆ®·Î ºí·¢');
-insert into color (color_code, color_name) values(72,'¸ŞÅ»¸¯ ½Ç¹ö');
-insert into color (color_code, color_name) values(73,'¹®¶óÀÌÆ® Æ¼Åº');
-insert into color (color_code, color_name) values(74,'ÇÁ·ÎÁğ È­ÀÌÆ®');
-insert into color (color_code, color_name) values(75,'¿À·Î¶ó ºí·¢');
-insert into color (color_code, color_name) values(76,'¼¼¶ó¹Í È­ÀÌÆ®');
-insert into color (color_code, color_name) values(77,'¹Ì·¯ Æ¼Åº');
-insert into color (color_code, color_name) values(78,'¹Ì·¯ ·¹µå');
-insert into color (color_code, color_name) values(79,'¿À·Î¶ó È­ÀÌÆ®');
-insert into color (color_code, color_name) values(80,'¿À·Î¶ó ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(81,'¿À·Î¶ó ±×¸°');
-insert into color (color_code, color_name) values(82,'ÀÏ·çÁ¯ ¼±¼Â');
-insert into color (color_code, color_name) values(83,'´º ¿À·Î¶ó ºí·¢');
-insert into color (color_code, color_name) values(84,'´º ¸ğ·ÎÄ­ ºí·¢');
-insert into color (color_code, color_name) values(85,'Ä«¹Î ·¹µå');
-insert into color (color_code, color_name) values(86,'´º ¸ğ·ÎÄ­ ºí·ç');
-insert into color (color_code, color_name) values(87,'¹Ìµå³ªÀÌÆ® ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(88,'Æú¶ó È­ÀÌÆ®');
-insert into color (color_code, color_name) values(89,'Æ÷·¹½ºÆ® ±×¸°');
-insert into color (color_code, color_name) values(90,'¿À´Ğ½º ºí·¢');
-insert into color (color_code, color_name) values(91,'¹ÎÆ®');
-insert into color (color_code, color_name) values(92,'Æäºí È­ÀÌÆ®');
-insert into color (color_code, color_name) values(93,'¿À´Ğ½º ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(94,'±Û·¡½Ã¾î ºí·ç');
-insert into color (color_code, color_name) values(95,'±×¶óµğ¾ğÆ® ºê·ĞÁî');
-insert into color (color_code, color_name) values(96,'½½·¹ÀÌÆ® ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(97,'·ÎÁî°ñµå');
-insert into color (color_code, color_name) values(98,'¾ó¾¾°ñµå');
-insert into color (color_code, color_name) values(99,'ÆÄÀÎ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(100,'ºê·ĞÁî');
-insert into color (color_code, color_name) values(101,'´ÙÅ©½Ç¹ö');
-insert into color (color_code, color_name) values(102,'Æ÷Æ®¸®½º ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(103,'ÀÌÅ¬¸³½º ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(104,'ÀÌÅ¬¸³½º½Ç¹ö');
-insert into color (color_code, color_name) values(105,'½ºÅ×ÀÎ¸®½º½ºÆ¿');
-insert into color (color_code, color_name) values(106,'Å¸ÀÌÅººí·¢');
-insert into color (color_code, color_name) values(107,'¸ÇÇØÆ°¹Ìµå³ªÀÕ');
-insert into color (color_code, color_name) values(108,'»şÀÌ´Ï »çÇÇ¾Æ³ë');
-insert into color (color_code, color_name) values(109,'»şÀÌ´ÏÇ»¾î');
-insert into color (color_code, color_name) values(110,'±×·¹ÀÌ ºí·¢');
-insert into color (color_code, color_name) values(111,'Å¬·¹ÀÌºê¶ó¿î+º£ÀÌÁö');
-insert into color (color_code, color_name) values(112,'±×¸° ½Ç¹ö');
-insert into color (color_code, color_name) values(113,'¼¼¶óºí·¢');
-insert into color (color_code, color_name) values(114,'ÄÚÅ¸ Æİ ±×¸°');
-insert into color (color_code, color_name) values(115,'±Û·¥È­ÀÌÆ® ±Û·¥ÇÎÅ©');
-insert into color (color_code, color_name) values(116,'±Û·¥»õÆ¾');
-insert into color (color_code, color_name) values(117,'ºê¶ó¿ì´Ï½Ç¹ö');
-insert into color (color_code, color_name) values(118,'»õÆ¾º£ÀÌÁö »õÆ¾ÅäÇÁ');
-insert into color (color_code, color_name) values(119,'¿¤·¹°­Æ®ÀÌ³ì½º');
-insert into color (color_code, color_name) values(120,'³»Ãß·²');
-insert into color (color_code, color_name) values(121,'¸®¾ó¸ŞÅ»');
-insert into color (color_code, color_name) values(122,'Á¨Æ²ºí·¢');
-insert into color (color_code, color_name) values(123,'½Ç¹ö¸ŞÅ»');
-insert into color (color_code, color_name) values(124,'¸¶ÀÎµå½Ç¹ö');
-insert into color (color_code, color_name) values(125,'±×·£µå½Ç¹ö');
-insert into color (color_code, color_name) values(126,'¸ÅÆ®±×¸°');
-insert into color (color_code, color_name) values(127,'´ÙÅ©Å¸ÀÌÅº½Ç¹ö');
-insert into color (color_code, color_name) values(128,'¾î¹İ±×·¹ÀÌ');
-insert into color (color_code, color_name) values(129,'¸ÅÆ®È­ÀÌÆ®');
-insert into color (color_code, color_name) values(130,'ÇÃ·¡Æ¼´½ºê¶ó¿î');
-insert into color (color_code, color_name) values(131,'ÀÌ³ì½º½Ç¹ö');
-insert into color (color_code, color_name) values(132,'»õÆ¾¶óÀÌÆ®º£ÀÌÁö');
-insert into color (color_code, color_name) values(133,'¸ŞÅ»¸¯±×·¹ÀÌ');
-insert into color (color_code, color_name) values(134,'µö½Ç¹ö');
-insert into color (color_code, color_name) values(135,'»÷µåº£ÀÌÁö');
-insert into color (color_code, color_name) values(136,'¹Ìµéºí·¢');
-insert into color (color_code, color_name) values(137,'¹ÌµéÇÁ¸®½Ç¹ö');
+insert into color (color_code, color_name) values(51,'íŒ¬í…€ ë¸”ë™');
+insert into color (color_code, color_name) values(52,'íŒ¬í…€ ê·¸ë¦°');
+insert into color (color_code, color_name) values(53,'íŒ¬í…€ ì‹¤ë²„');
+insert into color (color_code, color_name) values(54,'í¬ë¦¼');
+insert into color (color_code, color_name) values(55,'ë¼ë²¤ë”');
+insert into color (color_code, color_name) values(56,'íŒ¬í…€ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(57,'íŒ¬í…€ í•‘í¬');
+insert into color (color_code, color_name) values(58,'íŒ¬í…€ ë°”ì´ì˜¬ë ›');
+insert into color (color_code, color_name) values(59,'íŒ¬í…€ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(60,'ë¯¸ìŠ¤í‹± ë¸”ë™');
+insert into color (color_code, color_name) values(61,'ë¯¸ìŠ¤í‹± ë¸Œë¡ ì¦ˆ');
+insert into color (color_code, color_name) values(62,'í´ë¼ìš°ì¦ˆ ë¼ë²¤ë”');
+insert into color (color_code, color_name) values(63,'í´ë¼ìš°ë“œ ë„¤ì´ë¹„');
+insert into color (color_code, color_name) values(64,'í´ë¼ìš°ë“œ ë¯¼íŠ¸');
+insert into color (color_code, color_name) values(65,'í´ë¼ìš°ë“œ ë ˆë“œ');
+insert into color (color_code, color_name) values(66,'í´ë¼ìš°ë“œ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(67,'ê³¨ë“œ');
+insert into color (color_code, color_name) values(68,'í•‘í¬');
+insert into color (color_code, color_name) values(69,'í¼ì‹œí”½ ë¸”ë£¨');
+insert into color (color_code, color_name) values(70,'ìŠ¤í˜ì´ìŠ¤ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(71,'ì•„ìŠ¤íŠ¸ë¡œ ë¸”ë™');
+insert into color (color_code, color_name) values(72,'ë©”íƒˆë¦­ ì‹¤ë²„');
+insert into color (color_code, color_name) values(73,'ë¬¸ë¼ì´íŠ¸ í‹°íƒ„');
+insert into color (color_code, color_name) values(74,'í”„ë¡œì¦Œ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(75,'ì˜¤ë¡œë¼ ë¸”ë™');
+insert into color (color_code, color_name) values(76,'ì„¸ë¼ë¯¹ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(77,'ë¯¸ëŸ¬ í‹°íƒ„');
+insert into color (color_code, color_name) values(78,'ë¯¸ëŸ¬ ë ˆë“œ');
+insert into color (color_code, color_name) values(79,'ì˜¤ë¡œë¼ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(80,'ì˜¤ë¡œë¼ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(81,'ì˜¤ë¡œë¼ ê·¸ë¦°');
+insert into color (color_code, color_name) values(82,'ì¼ë£¨ì ¼ ì„ ì…‹');
+insert into color (color_code, color_name) values(83,'ë‰´ ì˜¤ë¡œë¼ ë¸”ë™');
+insert into color (color_code, color_name) values(84,'ë‰´ ëª¨ë¡œì¹¸ ë¸”ë™');
+insert into color (color_code, color_name) values(85,'ì¹´ë¯¼ ë ˆë“œ');
+insert into color (color_code, color_name) values(86,'ë‰´ ëª¨ë¡œì¹¸ ë¸”ë£¨');
+insert into color (color_code, color_name) values(87,'ë¯¸ë“œë‚˜ì´íŠ¸ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(88,'í´ë¼ í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(89,'í¬ë ˆìŠ¤íŠ¸ ê·¸ë¦°');
+insert into color (color_code, color_name) values(90,'ì˜¤ë‹‰ìŠ¤ ë¸”ë™');
+insert into color (color_code, color_name) values(91,'ë¯¼íŠ¸');
+insert into color (color_code, color_name) values(92,'í˜ë¸” í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(93,'ì˜¤ë‹‰ìŠ¤ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(94,'ê¸€ë˜ì‹œì–´ ë¸”ë£¨');
+insert into color (color_code, color_name) values(95,'ê·¸ë¼ë””ì–¸íŠ¸ ë¸Œë¡ ì¦ˆ');
+insert into color (color_code, color_name) values(96,'ìŠ¬ë ˆì´íŠ¸ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(97,'ë¡œì¦ˆê³¨ë“œ');
+insert into color (color_code, color_name) values(98,'ì–¼ì”¨ê³¨ë“œ');
+insert into color (color_code, color_name) values(99,'íŒŒì¸ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(100,'ë¸Œë¡ ì¦ˆ');
+insert into color (color_code, color_name) values(101,'ë‹¤í¬ì‹¤ë²„');
+insert into color (color_code, color_name) values(102,'í¬íŠ¸ë¦¬ìŠ¤ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(103,'ì´í´ë¦½ìŠ¤ ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(104,'ì´í´ë¦½ìŠ¤ì‹¤ë²„');
+insert into color (color_code, color_name) values(105,'ìŠ¤í…Œì¸ë¦¬ìŠ¤ìŠ¤í‹¸');
+insert into color (color_code, color_name) values(106,'íƒ€ì´íƒ„ë¸”ë™');
+insert into color (color_code, color_name) values(107,'ë§¨í•´íŠ¼ë¯¸ë“œë‚˜ì‡');
+insert into color (color_code, color_name) values(108,'ìƒ¤ì´ë‹ˆ ì‚¬í”¼ì•„ë…¸');
+insert into color (color_code, color_name) values(109,'ìƒ¤ì´ë‹ˆí“¨ì–´');
+insert into color (color_code, color_name) values(110,'ê·¸ë ˆì´ ë¸”ë™');
+insert into color (color_code, color_name) values(111,'í´ë ˆì´ë¸Œë¼ìš´+ë² ì´ì§€');
+insert into color (color_code, color_name) values(112,'ê·¸ë¦° ì‹¤ë²„');
+insert into color (color_code, color_name) values(113,'ì„¸ë¼ë¸”ë™');
+insert into color (color_code, color_name) values(114,'ì½”íƒ€ í€ ê·¸ë¦°');
+insert into color (color_code, color_name) values(115,'ê¸€ë¨í™”ì´íŠ¸ ê¸€ë¨í•‘í¬');
+insert into color (color_code, color_name) values(116,'ê¸€ë¨ìƒˆí‹´');
+insert into color (color_code, color_name) values(117,'ë¸Œë¼ìš°ë‹ˆì‹¤ë²„');
+insert into color (color_code, color_name) values(118,'ìƒˆí‹´ë² ì´ì§€ ìƒˆí‹´í† í”„');
+insert into color (color_code, color_name) values(119,'ì—˜ë ˆê°•íŠ¸ì´ë…¹ìŠ¤');
+insert into color (color_code, color_name) values(120,'ë‚´ì¶”ëŸ´');
+insert into color (color_code, color_name) values(121,'ë¦¬ì–¼ë©”íƒˆ');
+insert into color (color_code, color_name) values(122,'ì  í‹€ë¸”ë™');
+insert into color (color_code, color_name) values(123,'ì‹¤ë²„ë©”íƒˆ');
+insert into color (color_code, color_name) values(124,'ë§ˆì¸ë“œì‹¤ë²„');
+insert into color (color_code, color_name) values(125,'ê·¸ëœë“œì‹¤ë²„');
+insert into color (color_code, color_name) values(126,'ë§¤íŠ¸ê·¸ë¦°');
+insert into color (color_code, color_name) values(127,'ë‹¤í¬íƒ€ì´íƒ„ì‹¤ë²„');
+insert into color (color_code, color_name) values(128,'ì–´ë°˜ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(129,'ë§¤íŠ¸í™”ì´íŠ¸');
+insert into color (color_code, color_name) values(130,'í”Œë˜í‹°ëŠ„ë¸Œë¼ìš´');
+insert into color (color_code, color_name) values(131,'ì´ë…¹ìŠ¤ì‹¤ë²„');
+insert into color (color_code, color_name) values(132,'ìƒˆí‹´ë¼ì´íŠ¸ë² ì´ì§€');
+insert into color (color_code, color_name) values(133,'ë©”íƒˆë¦­ê·¸ë ˆì´');
+insert into color (color_code, color_name) values(134,'ë”¥ì‹¤ë²„');
+insert into color (color_code, color_name) values(135,'ìƒŒë“œë² ì´ì§€');
+insert into color (color_code, color_name) values(136,'ë¯¸ë“¤ë¸”ë™');
+insert into color (color_code, color_name) values(137,'ë¯¸ë“¤í”„ë¦¬ì‹¤ë²„');
 
 select * from color
 
@@ -458,204 +540,204 @@ commit
 --==============================================================================
 
 
--- Å×½ºÆ® Äõ¸®
+-- í…ŒìŠ¤íŠ¸ ì¿¼ë¦¬
 delete from color where color_code = 4
 drop table color
 
--- °èÀı°¡Àü - ¿¡¾îÄÁ
-¿¡¾î¸®È­ÀÌÆ®
+-- ê³„ì ˆê°€ì „ - ì—ì–´ì»¨
+ì—ì–´ë¦¬í™”ì´íŠ¸
 new NFD Gray
-È­ÀÌÆ®
-¸ŞÅ»È­ÀÌÆ®
-ºê¶ó¿î Äµ¹ö½º¿ìµå
+í™”ì´íŠ¸
+ë©”íƒˆí™”ì´íŠ¸
+ë¸Œë¼ìš´ ìº”ë²„ìŠ¤ìš°ë“œ
 Serene Green
-¿şµù½º³ë¿ì
-·Î¸ÇÆ½·ÎÁî
-Ä«¹Öº£ÀÌÁö
-Ä«¹Ö±×¸°
-Å¬¸°È­ÀÌÆ®
+ì›¨ë”©ìŠ¤ë…¸ìš°
+ë¡œë§¨í‹±ë¡œì¦ˆ
+ì¹´ë°ë² ì´ì§€
+ì¹´ë°ê·¸ë¦°
+í´ë¦°í™”ì´íŠ¸
 
--- °èÀı°¡Àü -°ø±âÃ»Á¤±â
-Å©¸®¹Ì½º³ë¿ì
-¾ÆÀÌ¾ğ±×·¹ÀÌ
-¹ĞÅ©Æ¼¶ó¶¼
-´º¸ŞÅ»»şÀÎ
-³×ÀÌÃ³±×¸°
-½Ç¹ö
-±×·¹ÀÌ
-º£ÀÌÁö
+-- ê³„ì ˆê°€ì „ -ê³µê¸°ì²­ì •ê¸°
+í¬ë¦¬ë¯¸ìŠ¤ë…¸ìš°
+ì•„ì´ì–¸ê·¸ë ˆì´
+ë°€í¬í‹°ë¼ë–¼
+ë‰´ë©”íƒˆìƒ¤ì¸
+ë„¤ì´ì²˜ê·¸ë¦°
+ì‹¤ë²„
+ê·¸ë ˆì´
+ë² ì´ì§€
 
-¹ÎÆ®±×¸°
-¸ôÅ¸±×¸°
-¼ÒÇÁÆ® º£ÀÌÁö
-Ç»¾î È­ÀÌÆ®
+ë¯¼íŠ¸ê·¸ë¦°
+ëª°íƒ€ê·¸ë¦°
+ì†Œí”„íŠ¸ ë² ì´ì§€
+í“¨ì–´ í™”ì´íŠ¸
 
--- °èÀı°¡Àü - ³­¹æ±â±â
-·¹µå
-¹ÙÀÌ¸ŞÅ»
-È­ÀÌÆ®ºí·¢
+-- ê³„ì ˆê°€ì „ - ë‚œë°©ê¸°ê¸°
+ë ˆë“œ
+ë°”ì´ë©”íƒˆ
+í™”ì´íŠ¸ë¸”ë™
 
 
--- ¾Æ·¡´Â Ãß°¡ÇØ¾ßµÊ
+-- ì•„ë˜ëŠ” ì¶”ê°€í•´ì•¼ë¨
 
--- ÁÖ¹æ°¡Àü - ³ÃÀå°í
-»şÀÌ´Ï´ÙÀÌ¾Æºí·¢
-±Û·¥µöÂ÷Äİ
-Â÷Äİ´ÙÅ©±×·¹ÀÌ
-ÇìÀÌÁî½Ç¹ö
-¸ŞÅ»
-¸ŞÅ»
+-- ì£¼ë°©ê°€ì „ - ëƒ‰ì¥ê³ 
+ìƒ¤ì´ë‹ˆë‹¤ì´ì•„ë¸”ë™
+ê¸€ë¨ë”¥ì°¨ì½œ
+ì°¨ì½œë‹¤í¬ê·¸ë ˆì´
+í—¤ì´ì¦ˆì‹¤ë²„
+ë©”íƒˆ
+ë©”íƒˆ
 
--- ÁÖ¹æ°¡Àü - Àü±â¹ä¼Ü
-ÇÇÄ¡°ñµå
-½Ç¹ö
-½Ç¹ö
-ºí·¢
+-- ì£¼ë°©ê°€ì „ - ì „ê¸°ë°¥ì†¥
+í”¼ì¹˜ê³¨ë“œ
+ì‹¤ë²„
+ì‹¤ë²„
+ë¸”ë™
 
--- ÁÖ¹æ°¡Àü - ¿¡¾îÇÁ¶óÀÌ¾î
-½º¸ğÅ°±×·¹ÀÌ
-ºí·¢
-¸ŞÅ»
-º£ÀÌÁö
-ºí·¢
-È­ÀÌÆ®
-½Ç¹ö
-ºí·¢
-ºí·¢
-¿Ã¸®ºê±×¸°
-È­ÀÌÆ®
-ºí·¢
-ºí·¢
-ºí·¢
+-- ì£¼ë°©ê°€ì „ - ì—ì–´í”„ë¼ì´ì–´
+ìŠ¤ëª¨í‚¤ê·¸ë ˆì´
+ë¸”ë™
+ë©”íƒˆ
+ë² ì´ì§€
+ë¸”ë™
+í™”ì´íŠ¸
+ì‹¤ë²„
+ë¸”ë™
+ë¸”ë™
+ì˜¬ë¦¬ë¸Œê·¸ë¦°
+í™”ì´íŠ¸
+ë¸”ë™
+ë¸”ë™
+ë¸”ë™
 
--- »ıÈ°°¡Àü - °ÇÁ¶±â
-È­ÀÌÆ®
-È­ÀÌÆ®
-È­ÀÌÆ®
-¸ğ´ø½ºÅ×ÀÎ¸®½º
+-- ìƒí™œê°€ì „ - ê±´ì¡°ê¸°
+í™”ì´íŠ¸
+í™”ì´íŠ¸
+í™”ì´íŠ¸
+ëª¨ë˜ìŠ¤í…Œì¸ë¦¬ìŠ¤
 
--- »ıÈ°°¡Àü - ¼¼Å¹±â
-È­ÀÌÆ®
-±×·¹ÀÌ
-ºí·¢ÄÉºñ¾î
-ÀÌ³ì½º
-¶óº¥´õ±×·¹ÀÌ
-¹Ìµéºí·¢
-¹ÌµåÇÁ¸®½Ç¹ö
-¹ÌµéÇÁ¸®½Ç¹ö
-ºí·¢½ºÅ×ÀÎ¸®½º
-¸ğ´ø½ºÅ×ÀÎ¸®½º
-¹Ìµåºí·¢
-½ºÅæ½Ç¹ö
-¹Ìµå±×·¹ÀÌ
-½Ç¹ö
+-- ìƒí™œê°€ì „ - ì„¸íƒê¸°
+í™”ì´íŠ¸
+ê·¸ë ˆì´
+ë¸”ë™ì¼€ë¹„ì–´
+ì´ë…¹ìŠ¤
+ë¼ë²¤ë”ê·¸ë ˆì´
+ë¯¸ë“¤ë¸”ë™
+ë¯¸ë“œí”„ë¦¬ì‹¤ë²„
+ë¯¸ë“¤í”„ë¦¬ì‹¤ë²„
+ë¸”ë™ìŠ¤í…Œì¸ë¦¬ìŠ¤
+ëª¨ë˜ìŠ¤í…Œì¸ë¦¬ìŠ¤
+ë¯¸ë“œë¸”ë™
+ìŠ¤í†¤ì‹¤ë²„
+ë¯¸ë“œê·¸ë ˆì´
+ì‹¤ë²„
 
--- »ıÈ°°¡Àü -Ã»¼Ò±â
-±×·¹ÀÌ
-±×¸°
-ºí·¢
-ºí·ç
-·¹µå
-½Ç¹ö
-ÆÛÇÃ
-¹ö°Çµğ
-ºê¶ó¿î
-¿»·Î¿ì
-È­ÀÌÆ®
+-- ìƒí™œê°€ì „ -ì²­ì†Œê¸°
+ê·¸ë ˆì´
+ê·¸ë¦°
+ë¸”ë™
+ë¸”ë£¨
+ë ˆë“œ
+ì‹¤ë²„
+í¼í”Œ
+ë²„ê±´ë””
+ë¸Œë¼ìš´
+ì˜ë¡œìš°
+í™”ì´íŠ¸
 
---tv pc ¸ğ¹ÙÀÏ Ãß°¡ ÄÃ·¯
-ÆÒÅÒ ºí·¢
-ÆÒÅÒ ±×¸°
-ÆÒÅÒ ½Ç¹ö
-Å©¸²
-¶óº¥´õ
-ÆÒÅÒ ±×·¹ÀÌ
-ÆÒÅÒ ÇÎÅ©
-ÆÒÅÒ ¹ÙÀÌ¿Ã·¿
-ÆÒÅÒ È­ÀÌÆ®
-¹Ì½ºÆ½ ºí·¢
-¹Ì½ºÆ½ ºê·ĞÁî
-Å¬¶ó¿ìÁî ¶óº¥´õ
-Å¬¶ó¿ìµå ³×ÀÌºñ
-Å¬¶ó¿ìµå ¹ÎÆ®
-Å¬¶ó¿ìµå ·¹µå
-Å¬¶ó¿ìµå È­ÀÌÆ®
-°ñµå
-ÇÎÅ©
-ÆÛ½ÃÇÈ ºí·ç
-½ºÆäÀÌ½º ±×·¹ÀÌ
-¾Æ½ºÆ®·Î ºí·¢
-¸ŞÅ»¸¯ ½Ç¹ö
-¹®¶óÀÌÆ® Æ¼Åº
-ÇÁ·ÎÁğ È­ÀÌÆ®
-¿À·Î¶ó ºí·¢
-¼¼¶ó¹Í È­ÀÌÆ®
-¹Ì·¯ Æ¼Åº
-¹Ì·¯ ·¹µå
-¿À·Î¶ó È­ÀÌÆ®
-¿À·Î¶ó ±×·¹ÀÌ
-¿À·Î¶ó ±×¸°
-ÀÏ·çÁ¯ ¼±¼Â
-´º ¿À·Î¶ó ºí·¢
-´º ¸ğ·ÎÄ­ ºí·¢
-Ä«¹Î ·¹µå
-´º ¸ğ·ÎÄ­ ºí·ç
-¹Ìµå³ªÀÌÆ® ±×·¹ÀÌ
-Æú¶ó È­ÀÌÆ®
-Æ÷·¹½ºÆ® ±×¸°
-¿À´Ğ½º ºí·¢
-¹ÎÆ®
-Æäºí È­ÀÌÆ®
-¿À´Ğ½º ±×·¹ÀÌ
-±Û·¡½Ã¾î ºí·ç
-±×¶óµğ¾ğÆ® ºê·ĞÁî
-½½·¹ÀÌÆ® ±×·¹ÀÌ
-·ÎÁî°ñµå
-¾ó¾¾°ñµå
-ÆÄÀÎ±×·¹ÀÌ
-ºê·ĞÁî
-´ÙÅ©½Ç¹ö
-Æ÷Æ®¸®½º ±×·¹ÀÌ
-ÀÌÅ¬¸³½º ±×·¹ÀÌ
-ÀÌÅ¬¸³½º½Ç¹ö
-½ºÅ×ÀÎ¸®½º½ºÆ¿
-Å¸ÀÌÅººí·¢
-¸ÇÇØÆ°¹Ìµå³ªÀÕ
-»şÀÌ´Ï »çÇÇ¾Æ³ë
-»şÀÌ´ÏÇ»¾î
-±×·¹ÀÌ ºí·¢
-Å¬·¹ÀÌºê¶ó¿î+º£ÀÌÁö
-±×¸° ½Ç¹ö
-¼¼¶óºí·¢
-ÄÚÅ¸ Æİ ±×¸°
-±Û·¥È­ÀÌÆ® ±Û·¥ÇÎÅ©
-±Û·¥»õÆ¾
-ºê¶ó¿ì´Ï½Ç¹ö
-»õÆ¾º£ÀÌÁö »õÆ¾ÅäÇÁ
-¿¤·¹°­Æ®ÀÌ³ì½º
-³»Ãß·²
-¸®¾ó¸ŞÅ»
+--tv pc ëª¨ë°”ì¼ ì¶”ê°€ ì»¬ëŸ¬
+íŒ¬í…€ ë¸”ë™
+íŒ¬í…€ ê·¸ë¦°
+íŒ¬í…€ ì‹¤ë²„
+í¬ë¦¼
+ë¼ë²¤ë”
+íŒ¬í…€ ê·¸ë ˆì´
+íŒ¬í…€ í•‘í¬
+íŒ¬í…€ ë°”ì´ì˜¬ë ›
+íŒ¬í…€ í™”ì´íŠ¸
+ë¯¸ìŠ¤í‹± ë¸”ë™
+ë¯¸ìŠ¤í‹± ë¸Œë¡ ì¦ˆ
+í´ë¼ìš°ì¦ˆ ë¼ë²¤ë”
+í´ë¼ìš°ë“œ ë„¤ì´ë¹„
+í´ë¼ìš°ë“œ ë¯¼íŠ¸
+í´ë¼ìš°ë“œ ë ˆë“œ
+í´ë¼ìš°ë“œ í™”ì´íŠ¸
+ê³¨ë“œ
+í•‘í¬
+í¼ì‹œí”½ ë¸”ë£¨
+ìŠ¤í˜ì´ìŠ¤ ê·¸ë ˆì´
+ì•„ìŠ¤íŠ¸ë¡œ ë¸”ë™
+ë©”íƒˆë¦­ ì‹¤ë²„
+ë¬¸ë¼ì´íŠ¸ í‹°íƒ„
+í”„ë¡œì¦Œ í™”ì´íŠ¸
+ì˜¤ë¡œë¼ ë¸”ë™
+ì„¸ë¼ë¯¹ í™”ì´íŠ¸
+ë¯¸ëŸ¬ í‹°íƒ„
+ë¯¸ëŸ¬ ë ˆë“œ
+ì˜¤ë¡œë¼ í™”ì´íŠ¸
+ì˜¤ë¡œë¼ ê·¸ë ˆì´
+ì˜¤ë¡œë¼ ê·¸ë¦°
+ì¼ë£¨ì ¼ ì„ ì…‹
+ë‰´ ì˜¤ë¡œë¼ ë¸”ë™
+ë‰´ ëª¨ë¡œì¹¸ ë¸”ë™
+ì¹´ë¯¼ ë ˆë“œ
+ë‰´ ëª¨ë¡œì¹¸ ë¸”ë£¨
+ë¯¸ë“œë‚˜ì´íŠ¸ ê·¸ë ˆì´
+í´ë¼ í™”ì´íŠ¸
+í¬ë ˆìŠ¤íŠ¸ ê·¸ë¦°
+ì˜¤ë‹‰ìŠ¤ ë¸”ë™
+ë¯¼íŠ¸
+í˜ë¸” í™”ì´íŠ¸
+ì˜¤ë‹‰ìŠ¤ ê·¸ë ˆì´
+ê¸€ë˜ì‹œì–´ ë¸”ë£¨
+ê·¸ë¼ë””ì–¸íŠ¸ ë¸Œë¡ ì¦ˆ
+ìŠ¬ë ˆì´íŠ¸ ê·¸ë ˆì´
+ë¡œì¦ˆê³¨ë“œ
+ì–¼ì”¨ê³¨ë“œ
+íŒŒì¸ê·¸ë ˆì´
+ë¸Œë¡ ì¦ˆ
+ë‹¤í¬ì‹¤ë²„
+í¬íŠ¸ë¦¬ìŠ¤ ê·¸ë ˆì´
+ì´í´ë¦½ìŠ¤ ê·¸ë ˆì´
+ì´í´ë¦½ìŠ¤ì‹¤ë²„
+ìŠ¤í…Œì¸ë¦¬ìŠ¤ìŠ¤í‹¸
+íƒ€ì´íƒ„ë¸”ë™
+ë§¨í•´íŠ¼ë¯¸ë“œë‚˜ì‡
+ìƒ¤ì´ë‹ˆ ì‚¬í”¼ì•„ë…¸
+ìƒ¤ì´ë‹ˆí“¨ì–´
+ê·¸ë ˆì´ ë¸”ë™
+í´ë ˆì´ë¸Œë¼ìš´+ë² ì´ì§€
+ê·¸ë¦° ì‹¤ë²„
+ì„¸ë¼ë¸”ë™
+ì½”íƒ€ í€ ê·¸ë¦°
+ê¸€ë¨í™”ì´íŠ¸ ê¸€ë¨í•‘í¬
+ê¸€ë¨ìƒˆí‹´
+ë¸Œë¼ìš°ë‹ˆì‹¤ë²„
+ìƒˆí‹´ë² ì´ì§€ ìƒˆí‹´í† í”„
+ì—˜ë ˆê°•íŠ¸ì´ë…¹ìŠ¤
+ë‚´ì¶”ëŸ´
+ë¦¬ì–¼ë©”íƒˆ
 
-Á¨Æ²ºí·¢
-½Ç¹ö¸ŞÅ»
-¸¶ÀÎµå½Ç¹ö
-±×·£µå½Ç¹ö
-¸ÅÆ®±×¸°
-´ÙÅ©Å¸ÀÌÅº½Ç¹ö
-¾î¹İ±×·¹ÀÌ
-¸ÅÆ®È­ÀÌÆ®
-ÇÃ·¡Æ¼´½ºê¶ó¿î
-ÀÌ³ì½º½Ç¹ö
-»õÆ¾¶óÀÌÆ®º£ÀÌÁö
-¸ŞÅ»¸¯±×·¹ÀÌ
-µö½Ç¹ö
-»÷µåº£ÀÌÁö
-¹Ìµéºí·¢
-¹ÌµéÇÁ¸®½Ç¹ö
+ì  í‹€ë¸”ë™
+ì‹¤ë²„ë©”íƒˆ
+ë§ˆì¸ë“œì‹¤ë²„
+ê·¸ëœë“œì‹¤ë²„
+ë§¤íŠ¸ê·¸ë¦°
+ë‹¤í¬íƒ€ì´íƒ„ì‹¤ë²„
+ì–´ë°˜ê·¸ë ˆì´
+ë§¤íŠ¸í™”ì´íŠ¸
+í”Œë˜í‹°ëŠ„ë¸Œë¼ìš´
+ì´ë…¹ìŠ¤ì‹¤ë²„
+ìƒˆí‹´ë¼ì´íŠ¸ë² ì´ì§€
+ë©”íƒˆë¦­ê·¸ë ˆì´
+ë”¥ì‹¤ë²„
+ìƒŒë“œë² ì´ì§€
+ë¯¸ë“¤ë¸”ë™
+ë¯¸ë“¤í”„ë¦¬ì‹¤ë²„
 
 
 -- =================
--- Å×½ºÆ®¿ë Äõ¸®
+-- í…ŒìŠ¤íŠ¸ìš© ì¿¼ë¦¬
 
 select * from ID_G_ITEMS
 select * from color
