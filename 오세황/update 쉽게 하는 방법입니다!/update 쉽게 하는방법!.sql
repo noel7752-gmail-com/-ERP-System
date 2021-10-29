@@ -1,4 +1,4 @@
-update ID_G_ITEMS set G_ITEM_CODE = 'oooo' where G_ITEM_CODE = 'CRP-R069FP'
+update ID_G_ITEMS set G_ITEM_CODE = 'xxx' where G_ITEM_CODE = 'ggggg'
 
 
 /* 트리거를 만듭니다. 그리고 나서 ID_G_ITEMS 에 제품코드를 업데이트 합니다. 끝. */
