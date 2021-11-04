@@ -1,0 +1,13 @@
+
+
+contoller - 황성준님
+
+dao - 최현준.
+
+dto - 효재님
+
+나머지(mapper service util) - 장영일님
+
+jsp  - 제가 
+
+오류수집 - 주영일님
