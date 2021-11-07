@@ -1,0 +1,115 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+
+
+<!-- 문제가 10개 면 오답이 8개면,   
+    발생할수 있는 오답의 경우의 수 개수를 
+    랜덤하게 뽑기 -->
+
+
+<script>
+    function get_random_cnt_s( question_cnt, odap_cnt ){
+
+
+
+
+
+        // 뱉어야 하는 array 객체  길이: arrleng=10
+        // array객체 내용물 총 합: sam= 8
+
+        var arr=[];
+
+        var limit = odap_cnt;
+
+        var repeat = question_cnt;
+
+        for( i=0 ; i<repeat ; i++ ){
+
+
+            var inner = Math.floor( Math.random()*(odap_cnt+1) );   // 0~8까지 랜덤 정수
+
+
+            // if( limit==0 ){ break; }
+            if( inner <= limit ){ 
+                limit = limit - inner;
+                arr.push(inner);
+            }else{
+                repeat = repeat+1;
+            }
+        }
+
+        alert(arr.length)
+
+
+
+        for( i=0 ; i<question_cnt-arr.length ; i++ ){
+            arr.push(0);
+        }
+       
+
+
+        
+        // var arr = [];
+
+        // var limit = odap_cnt; 
+
+        // for(i=1; i<=question_cnt; i++){
+
+        //     var xxx = Math.random()*(odap_cnt +1);
+        //     var yyy = Math.floor(xxx);
+            
+        //     alert(yyy)
+
+
+        //     limit -= yyy
+
+        //     limit+=limit
+
+
+        //     if(limit==0 && limit==8){
+        //         arr.push(yyy);
+        //     }
+
+            // while(true){
+
+
+
+            // }
+
+
+            
+            // for(var j=1; j<=i; j++){
+                
+            //     if(odap_cnt-yyy > 0){ cnt += odap_cnt-yyy ; }
+            // }
+            // if(cnt==  8){
+
+            //     arr.push(yyy);
+            
+            // }
+
+
+
+            // arr.push(yyy);
+            // odap_cnt-yyy 
+        // }
+        
+        alert(arr);
+    }
+    document.write(
+
+        get_random_cnt_s(10,8).join(",")
+
+    )
+</script>
+
+
+</head>
+
+<body>
+   
+</body>
+</html>
+
