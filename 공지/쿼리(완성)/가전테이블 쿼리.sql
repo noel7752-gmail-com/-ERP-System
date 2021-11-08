@@ -37,7 +37,7 @@ create table ID_categories(
 
 
 --업데이트 트리거 만들고 하는 테스트 코드입니다. 밑에 트리거 만들고 사용하세요!
-update ID_G_ITEMS set G_ITEM_CODE = 'oooo' where G_ITEM_CODE = 'CRP-R069FP'
+update ID_G_ITEMS set G_ITEM_CODE = 'T930S' where G_ITEM_CODE = 'eeee'
 
 
 
