@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW ERP_LIST
+О╩©CREATE OR REPLACE VIEW ERP_LIST
 AS
 
 select
@@ -146,6 +146,6 @@ select
 
 
 
--- ╨Д ╩Щ╪╨го╟М Ё╙╪╜ х╝юнго╪╪©Д!!
+-- К╥╟ Л┐²Л└╠М∙≤ЙЁ═ К┌≤Л└° М≥∙Л²╦М∙≤Л└╦Л ■!!
 
 select * from ERP_LIST
